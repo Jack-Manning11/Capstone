@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: 70be4d36f230987488ffebc3d8d67781
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 32
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638430278892503053
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: ElevatorAnimClosing_Frame_0
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 4
+      width: 18
+      height: 51
+    spriteID: d413d095f0da1a742bb7103c06460b15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 4}
+  - name: ElevatorAnimClosing_Frame_1
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 58
+      y: 4
+      width: 18
+      height: 51
+    spriteID: 86880677eacd83c499e1aed1f5e198fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 58, y: 4}
+  - name: ElevatorAnimClosing_Frame_2
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 4
+      width: 18
+      height: 51
+    spriteID: 65ad748c265bc1041a5dddc64124e0b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 4}
+  - name: ElevatorAnimClosing_Frame_3
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 110
+      y: 4
+      width: 18
+      height: 51
+    spriteID: 5cd1ef255c45ba342ab1abde16854b41
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 110, y: 4}
+  - name: ElevatorAnimClosing_Frame_4
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 136
+      y: 4
+      width: 18
+      height: 51
+    spriteID: 5923427421ea00141a06d88b61d3a53b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 136, y: 4}
+  - name: ElevatorAnimClosing_Frame_5
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 162
+      y: 4
+      width: 18
+      height: 51
+    spriteID: db20de895d24f944ca5fb8a28fb88a13
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 162, y: 4}
+  - name: ElevatorAnimClosing_Frame_6
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 188
+      y: 4
+      width: 18
+      height: 51
+    spriteID: b996070cac960f547a8d0e3edfb55181
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 188, y: 4}
+  - name: ElevatorAnimClosing_Frame_7
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 214
+      y: 4
+      width: 18
+      height: 51
+    spriteID: 3d799254ce3042b469d7472335d5d538
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 214, y: 4}
+  - name: ElevatorAnimClosing_Frame_8
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 64
+      width: 18
+      height: 51
+    spriteID: 5d8ed931d05c1c84c916b3cbf24819ac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 64}
+  - name: ElevatorAnimClosing_Frame_9
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 30
+      y: 64
+      width: 18
+      height: 51
+    spriteID: 6eeb8a95efb5f1a49b37164d0ac4067f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 30, y: 64}
+  - name: ElevatorAnimClosing_Frame_10
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 56
+      y: 64
+      width: 18
+      height: 51
+    spriteID: d8401ec8c58f17b4296615b928db94ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 56, y: 64}
+  - name: ElevatorAnimClosing_Frame_11
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 64
+      width: 18
+      height: 51
+    spriteID: d0bffc885a2de604f86898d14115019b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 82, y: 64}
+  - name: ElevatorAnimClosing_Frame_12
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 108
+      y: 64
+      width: 18
+      height: 51
+    spriteID: 4b83a097b58756947ad24519bcade0fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 108, y: 64}
+  - name: ElevatorAnimClosing_Frame_13
+    originalName: 
+    pivot: {x: 0.8, y: -0.07692308}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 20
+      height: 52
+    spriteID: e9cf54212b4331f43952b52e80007ed6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: ElevatorAnimClosing_Frame_14
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 134
+      y: 64
+      width: 18
+      height: 51
+    spriteID: 5ea56193704e22747a6c42ede220144d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 134, y: 64}
+  - name: ElevatorAnimClosing_Frame_15
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 64
+      width: 18
+      height: 51
+    spriteID: a03ed05222482b24faece34f5695f447
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 160, y: 64}
+  - name: ElevatorAnimClosing_Frame_16
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 186
+      y: 64
+      width: 18
+      height: 51
+    spriteID: 49f046c6bd2c26a49b43bfd9a57df46f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 186, y: 64}
+  - name: ElevatorAnimClosing_Frame_17
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 212
+      y: 64
+      width: 18
+      height: 51
+    spriteID: c421168c2b57e64498af9d64ae66be08
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 212, y: 64}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1426140168
+    name: ElevatorAnimClosing
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: ElevatorAnimClosing_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: d413d095f0da1a742bb7103c06460b15
+    - name: ElevatorAnimClosing_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: 86880677eacd83c499e1aed1f5e198fe
+    - name: ElevatorAnimClosing_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: 65ad748c265bc1041a5dddc64124e0b6
+    - name: ElevatorAnimClosing_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: 5cd1ef255c45ba342ab1abde16854b41
+    - name: ElevatorAnimClosing_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: 5923427421ea00141a06d88b61d3a53b
+    - name: ElevatorAnimClosing_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: db20de895d24f944ca5fb8a28fb88a13
+    - name: ElevatorAnimClosing_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: b996070cac960f547a8d0e3edfb55181
+    - name: ElevatorAnimClosing_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: 3d799254ce3042b469d7472335d5d538
+    - name: ElevatorAnimClosing_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: 5d8ed931d05c1c84c916b3cbf24819ac
+    - name: ElevatorAnimClosing_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: 6eeb8a95efb5f1a49b37164d0ac4067f
+    - name: ElevatorAnimClosing_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: d8401ec8c58f17b4296615b928db94ab
+    - name: ElevatorAnimClosing_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: d0bffc885a2de604f86898d14115019b
+    - name: ElevatorAnimClosing_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: 4b83a097b58756947ad24519bcade0fb
+    - name: ElevatorAnimClosing_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 0
+        y: 4
+        width: 20
+        height: 52
+      spriteId: e9cf54212b4331f43952b52e80007ed6
+    - name: ElevatorAnimClosing_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: 5ea56193704e22747a6c42ede220144d
+    - name: ElevatorAnimClosing_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: a03ed05222482b24faece34f5695f447
+    - name: ElevatorAnimClosing_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: 49f046c6bd2c26a49b43bfd9a57df46f
+    - name: ElevatorAnimClosing_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 2
+        y: 5
+        width: 18
+        height: 51
+      spriteId: c421168c2b57e64498af9d64ae66be08
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 32, y: 82}

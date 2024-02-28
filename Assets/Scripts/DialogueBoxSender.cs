@@ -35,7 +35,7 @@ public class DialogueBoxSender : MonoBehaviour
 
     private void Update()
     {
-        if (canBeSelected && Input.GetKeyUp(KeyCode.O) && !dialogueBox.GetComponent<DialogueBox>().inConvo)
+        if (canBeSelected && Input.GetKeyDown(KeyCode.O) && !dialogueBox.GetComponent<DialogueBox>().inConvo)
         {
             numberOfConversations++;
             TriggerDiaglouge();
@@ -44,7 +44,7 @@ public class DialogueBoxSender : MonoBehaviour
 
     public void TriggerDiaglouge()
     {
-        if (numberOfConversations == 2)
+        if (numberOfConversations == 2 && isQuestionAfter)
         {
             mainDialogue = preQuestionDialogue;
         }

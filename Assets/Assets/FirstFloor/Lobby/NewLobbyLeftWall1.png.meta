@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cdb125d7b439d4c139d7827c769dd92d
+guid: a434d917bf3c974448a30401ed72954d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lobbyleftwall1_0
+      name: NewLobbyLeftWall1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6424c886cff2f4e3a9dcc6163bed49ae
-      internalID: -1820493149
+      spriteID: 56b67d76f677de7489a0fcf566c236a8
+      internalID: -1761422736
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lobbyleftwall1_0: -1820493149
+      NewLobbyLeftWall1_0: -1761422736
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e380fde20af9b46b0aa9062deccf8bfe
+guid: c8a4be0afdce04939b5726d92316b99a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: facultycommonsbackright_0
+      name: elevatorright_0
       rect:
         serializedVersion: 2
-        x: 519
-        y: 263
-        width: 492
-        height: 314
+        x: 656
+        y: 234
+        width: 6
+        height: 70
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff0fcfbcb58a9441bbb2ba535e2535eb
-      internalID: -400602766
+      spriteID: 707bc0496c79343c6a1e11c6df74e4ba
+      internalID: 1433471406
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      facultycommonsbackright_0: -400602766
+      elevatorright_0: 1433471406
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

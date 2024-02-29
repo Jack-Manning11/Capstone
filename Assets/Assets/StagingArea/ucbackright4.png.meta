@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e380fde20af9b46b0aa9062deccf8bfe
+guid: 82a8043abf105418d9a78d6b22326c8b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: facultycommonsbackright_0
+      name: ucbackright4_0
       rect:
         serializedVersion: 2
-        x: 519
-        y: 263
-        width: 492
-        height: 314
+        x: 305
+        y: 219
+        width: 22
+        height: 78
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff0fcfbcb58a9441bbb2ba535e2535eb
-      internalID: -400602766
+      spriteID: fc0369ced9b8d48709961829dcbfec41
+      internalID: 1963910483
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      facultycommonsbackright_0: -400602766
+      ucbackright4_0: 1963910483
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

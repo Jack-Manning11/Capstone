@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e380fde20af9b46b0aa9062deccf8bfe
+guid: 77d6ec3e29a1a486eae89e1a0a4f2b51
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: facultycommonsbackright_0
+      name: gradbackleft_0
       rect:
         serializedVersion: 2
-        x: 519
-        y: 263
-        width: 492
-        height: 314
+        x: 39
+        y: 270
+        width: 144
+        height: 139
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff0fcfbcb58a9441bbb2ba535e2535eb
-      internalID: -400602766
+      spriteID: 9640f6b52a3af48189a7ed74065cb14d
+      internalID: 275321111
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      facultycommonsbackright_0: -400602766
+      gradbackleft_0: 275321111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

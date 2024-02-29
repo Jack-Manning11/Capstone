@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e380fde20af9b46b0aa9062deccf8bfe
+guid: 5880bb21fb5ee4c498e1d7d46a84c029
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: facultycommonsbackright_0
+      name: gradmiddle_0
       rect:
         serializedVersion: 2
-        x: 519
-        y: 263
-        width: 492
-        height: 314
+        x: 95
+        y: 242
+        width: 148
+        height: 136
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff0fcfbcb58a9441bbb2ba535e2535eb
-      internalID: -400602766
+      spriteID: 5233450a8f4404007b17398ddcd6cfde
+      internalID: -625698169
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      facultycommonsbackright_0: -400602766
+      gradmiddle_0: -625698169
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -24,6 +24,8 @@ public class NewMover : MonoBehaviour
     public List<Sprite> wIdleSprites;
     public List<Sprite> nwIdleSprites;
 
+    public bool moveLock = false;
+
     public float walkSpeed;
     public float frameRate;
     private float idleTime;
@@ -32,12 +34,10 @@ public class NewMover : MonoBehaviour
 
     private Vector2 direction;
 
-    void Start() {
-
-    }
-
     void Update() {
-      direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+      if(moveLock == false){
+        direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+      }
 
       // Check if moving diagonally
       if (Mathf.Abs(direction.x) > 0 && Mathf.Abs(direction.y) > 0) {
@@ -124,5 +124,9 @@ public class NewMover : MonoBehaviour
       } else {
         return nwIdleSprites;
       }
+    }
+
+    public void setMoveLock(bool locked){
+      moveLock = locked;
     }
 }

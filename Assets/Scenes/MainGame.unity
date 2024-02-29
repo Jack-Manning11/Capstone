@@ -5643,16 +5643,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfCharacter: 
   mainDialogue: []
+  isQuestionAfter: 0
   preQuestionDialogue: []
-  postQuestionDialogue: []
-  numberOfConversations: 0
+  postQuestionDialogueRight: []
+  postQuestionDialogueWrong: []
   question: 
   answerA: 
   answerB: 
   answerC: 
   answerD: 
-  correctAnswerIndex: 0
-  isQuestionAfter: 0
+  correctAnswerChar: 0
+  numberOfConversations: 0
   dialogueBox: {fileID: 1222232167}
 --- !u!1 &281761452
 GameObject:
@@ -8655,7 +8656,7 @@ GameObject:
   - component: {fileID: 376828209}
   m_Layer: 5
   m_Name: QuizCanvas
-  m_TagString: IgnoreOpacity
+  m_TagString: Exempt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8747,7 +8748,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1974091043
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &382090213
 GameObject:
@@ -9545,7 +9546,7 @@ GameObject:
   - component: {fileID: 409208588}
   m_Layer: 0
   m_Name: AnswerBBox
-  m_TagString: Untagged
+  m_TagString: Exempt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9605,7 +9606,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974091043
   m_SortingLayer: 3
-  m_SortingOrder: 328
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.119199276, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -10184,8 +10185,8 @@ MonoBehaviour:
   - {x: 0.2173698, y: -0.72076225, z: 0}
   - {x: 0.020976543, y: -0.7222072, z: 0}
   m_ShapePathHash: 918010903
-  m_Mesh: {fileID: 861878004}
-  m_InstanceId: 34660
+  m_Mesh: {fileID: 858884259}
+  m_InstanceId: 28964
   m_LocalBounds:
     m_Center: {x: 0.02436459, y: -0.62933093, z: 0}
     m_Extent: {x: 0.1930052, y: 0.092876256, z: 0}
@@ -16829,17 +16830,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfCharacter: Normal Trashcan...
-  mainDialogue: []
+  mainDialogue:
+  - SCARY TRASHCAN!!!!
+  - '*cough*, *cough*, sorry...'
+  - just a normal trashcan
+  - ...
+  isQuestionAfter: 0
   preQuestionDialogue: []
-  postQuestionDialogue: []
-  numberOfConversations: 0
+  postQuestionDialogueRight: []
+  postQuestionDialogueWrong: []
   question: 
   answerA: 
   answerB: 
   answerC: 
   answerD: 
-  correctAnswerIndex: 0
-  isQuestionAfter: 0
+  correctAnswerChar: 643
+  numberOfConversations: 0
   dialogueBox: {fileID: 1222232167}
 --- !u!1 &779765313
 GameObject:
@@ -19431,6 +19437,171 @@ Transform:
   - {fileID: 1298956732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!43 &858884259
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 54
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 20
+    localAABB:
+      m_Center: {x: 0.02436459, y: -0.62933093, z: 0}
+      m_Extent: {x: 0.1930052, y: 0.092876256, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000100020003000100000004000100030004000500010006000500040006000700050006000800070008000600090002000a00000000000b00030001000c00020005000d00010003000e00040004000f000600070010000500060011000900080012000700090013000800
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 20
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 880
+    _typelessdata: 30965e3ee08338bf000000008e947e3f3963d73d000000800000008030965e3ee08338bf30965e3ee08338bf90a04a3e185509bf00000000d1b1dfbc8fe77f3f000000800000008090a04a3e185509bf90a04a3e185509bf609b543e7cec20bf000000008e947e3f3963d73d000000800000008090a04a3e185509bf30965e3ee08338bf1011f43d39b338bf000000005614f13b3afe7fbf000000800000008030965e3ee08338bf00d7ab3c92e238bf00d7ab3c92e238bf000000005614f13b3afe7fbf000000800000008000d7ab3c92e238bf00d7ab3c92e238bf40ad9f3c72940abf00000000d1b1dfbc8fe77f3f000000800000008040b522beccd30bbf90a04a3e185509bf403597bd39b338bf00000000b0b1f9bb1afe7fbf000000000000008000d7ab3c92e238bf20b02cbee08338bf40b522beccd30bbf00000000189a7fbfb954643d000000800000008040b522beccd30bbf40b522beccd30bbfb0b227bed62b22bf00000000189a7fbfb954643d000000800000008020b02cbee08338bf40b522beccd30bbf20b02cbee08338bf00000000b0b1f9bb1afe7fbf000000000000008020b02cbee08338bf20b02cbee08338bf609b543e7cec20bf000000008e947e3f3963d73d000000800000008090a04a3e185509bf30965e3ee08338bf30965e3ee08338bf000000005614f13b3afe7fbf000000800000008030965e3ee08338bf30965e3ee08338bf90a04a3e185509bf000000008e947e3f3963d73d000000800000008090a04a3e185509bf90a04a3e185509bf40ad9f3c72940abf00000000d1b1dfbc8fe77f3f000000800000008040b522beccd30bbf90a04a3e185509bf1011f43d39b338bf000000005614f13b3afe7fbf000000800000008030965e3ee08338bf00d7ab3c92e238bf00d7ab3c92e238bf00000000b0b1f9bb1afe7fbf000000000000008000d7ab3c92e238bf00d7ab3c92e238bf40b522beccd30bbf00000000d1b1dfbc8fe77f3f000000800000008040b522beccd30bbf40b522beccd30bbf403597bd39b338bf00000000b0b1f9bb1afe7fbf000000000000008000d7ab3c92e238bf20b02cbee08338bfb0b227bed62b22bf00000000189a7fbfb954643d000000800000008020b02cbee08338bf40b522beccd30bbf20b02cbee08338bf00000000189a7fbfb954643d000000800000008020b02cbee08338bf20b02cbee08338bf
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.02436459, y: -0.62933093, z: 0}
+    m_Extent: {x: 0.1930052, y: 0.092876256, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &861652039
 GameObject:
   m_ObjectHideFlags: 0
@@ -19629,171 +19800,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 960511873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &861878004
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 54
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 20
-    localAABB:
-      m_Center: {x: 0.02436459, y: -0.62933093, z: 0}
-      m_Extent: {x: 0.1930052, y: 0.092876256, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020003000100000004000100030004000500010006000500040006000700050006000800070008000600090002000a00000000000b00030001000c00020005000d00010003000e00040004000f000600070010000500060011000900080012000700090013000800
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 20
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 880
-    _typelessdata: 30965e3ee08338bf000000008e947e3f3963d73d000000800000008030965e3ee08338bf30965e3ee08338bf90a04a3e185509bf00000000d1b1dfbc8fe77f3f000000800000008090a04a3e185509bf90a04a3e185509bf609b543e7cec20bf000000008e947e3f3963d73d000000800000008090a04a3e185509bf30965e3ee08338bf1011f43d39b338bf000000005614f13b3afe7fbf000000800000008030965e3ee08338bf00d7ab3c92e238bf00d7ab3c92e238bf000000005614f13b3afe7fbf000000800000008000d7ab3c92e238bf00d7ab3c92e238bf40ad9f3c72940abf00000000d1b1dfbc8fe77f3f000000800000008040b522beccd30bbf90a04a3e185509bf403597bd39b338bf00000000b0b1f9bb1afe7fbf000000000000008000d7ab3c92e238bf20b02cbee08338bf40b522beccd30bbf00000000189a7fbfb954643d000000800000008040b522beccd30bbf40b522beccd30bbfb0b227bed62b22bf00000000189a7fbfb954643d000000800000008020b02cbee08338bf40b522beccd30bbf20b02cbee08338bf00000000b0b1f9bb1afe7fbf000000000000008020b02cbee08338bf20b02cbee08338bf609b543e7cec20bf000000008e947e3f3963d73d000000800000008090a04a3e185509bf30965e3ee08338bf30965e3ee08338bf000000005614f13b3afe7fbf000000800000008030965e3ee08338bf30965e3ee08338bf90a04a3e185509bf000000008e947e3f3963d73d000000800000008090a04a3e185509bf90a04a3e185509bf40ad9f3c72940abf00000000d1b1dfbc8fe77f3f000000800000008040b522beccd30bbf90a04a3e185509bf1011f43d39b338bf000000005614f13b3afe7fbf000000800000008030965e3ee08338bf00d7ab3c92e238bf00d7ab3c92e238bf00000000b0b1f9bb1afe7fbf000000000000008000d7ab3c92e238bf00d7ab3c92e238bf40b522beccd30bbf00000000d1b1dfbc8fe77f3f000000800000008040b522beccd30bbf40b522beccd30bbf403597bd39b338bf00000000b0b1f9bb1afe7fbf000000000000008000d7ab3c92e238bf20b02cbee08338bfb0b227bed62b22bf00000000189a7fbfb954643d000000800000008020b02cbee08338bf40b522beccd30bbf20b02cbee08338bf00000000189a7fbfb954643d000000800000008020b02cbee08338bf20b02cbee08338bf
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.02436459, y: -0.62933093, z: 0}
-    m_Extent: {x: 0.1930052, y: 0.092876256, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &866682669
 GameObject:
   m_ObjectHideFlags: 0
@@ -21998,6 +22004,7 @@ GameObject:
   - component: {fileID: 954365818}
   - component: {fileID: 954365817}
   - component: {fileID: 954365816}
+  - component: {fileID: 954365821}
   m_Layer: 0
   m_Name: KnightOnTheWall
   m_TagString: Exempt
@@ -22206,6 +22213,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &954365821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954365814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25716a2039379f143a98de0d96d75020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBoxSender: {fileID: 1755024735}
+  dialogueQuiz: {fileID: 1726912116}
+  ObjectToShutdown: {fileID: 954365814}
 --- !u!1 &960511872
 GameObject:
   m_ObjectHideFlags: 0
@@ -24094,7 +24116,7 @@ GameObject:
   - component: {fileID: 1019657894}
   m_Layer: 0
   m_Name: AnswerDBox
-  m_TagString: Untagged
+  m_TagString: Exempt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24154,7 +24176,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974091043
   m_SortingLayer: 3
-  m_SortingOrder: 330
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 1, b: 0.99086285, a: 1}
   m_FlipX: 0
@@ -39072,7 +39094,7 @@ GameObject:
   - component: {fileID: 1644107994}
   m_Layer: 0
   m_Name: AnswerABox
-  m_TagString: Untagged
+  m_TagString: Exempt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39132,7 +39154,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974091043
   m_SortingLayer: 3
-  m_SortingOrder: 300
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -41524,7 +41546,7 @@ GameObject:
   - component: {fileID: 1726912116}
   m_Layer: 0
   m_Name: QuizBox
-  m_TagString: Untagged
+  m_TagString: Exempt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41584,7 +41606,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974091043
   m_SortingLayer: 3
-  m_SortingOrder: 312
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -41623,6 +41645,9 @@ MonoBehaviour:
   answerCText: {fileID: 1958994945}
   answerDText: {fileID: 312408600}
   mainCamera: {fileID: 0}
+  SuccessfulQuiz: 0
+  burnerBox: {fileID: 1753124771}
+  senderCopy: {fileID: 1753124771}
   OriginalColors: []
   HoveredColors: []
 --- !u!1 &1729928241
@@ -42385,6 +42410,64 @@ PolygonCollider2D:
       - {x: 0.125, y: 0.25}
       - {x: 0.5, y: 0.0625}
   m_UseDelaunayMesh: 0
+--- !u!1 &1753124770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1753124772}
+  - component: {fileID: 1753124771}
+  m_Layer: 0
+  m_Name: Burner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1753124771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753124770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555449cf81637b1448db49435c494799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfCharacter: Burner
+  mainDialogue: []
+  isQuestionAfter: 0
+  preQuestionDialogue: []
+  postQuestionDialogueRight: []
+  postQuestionDialogueWrong: []
+  question: 
+  answerA: 
+  answerB: 
+  answerC: 
+  answerD: 
+  correctAnswerChar: 80
+  numberOfConversations: 0
+  dialogueBox: {fileID: 0}
+--- !u!4 &1753124772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753124770}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.875, y: 3.21875, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1755024732
 GameObject:
   m_ObjectHideFlags: 0
@@ -42473,19 +42556,23 @@ MonoBehaviour:
   - If you can help me understand this "technology" your poeple speak of...
   - ...perhaps I will let you past my wall
   - peasant.
+  isQuestionAfter: 1
   preQuestionDialogue:
   - Think youre ready to teach me about "t e c h n o l o g y"??
   - ANSWER THIS!!!
   - EN GARDE!!!!!
-  postQuestionDialogue: []
-  numberOfConversations: 0
+  postQuestionDialogueRight:
+  - Seems right to me! Back to the past I GOOOOOoooooo.......
+  postQuestionDialogueWrong:
+  - mmmmmmm. I don't think that one is right.
+  - peasant.
   question: What is the meaning of MIT and Design Foundations??
-  answerA: 'An ATLAS introduction to new students. '
+  answerA: A place to skateboard
   answerB: A training ground for peasants
-  answerC: A place to skateboard
-  answerD: what is a skateboard?
-  correctAnswerIndex: 0
-  isQuestionAfter: 1
+  answerC: 'An ATLAS introduction to new students. '
+  answerD: what is a skateboard!?
+  correctAnswerChar: 67
+  numberOfConversations: 0
   dialogueBox: {fileID: 1222232167}
 --- !u!1 &1757435277
 GameObject:
@@ -50155,7 +50242,7 @@ GameObject:
   - component: {fileID: 2076500076}
   m_Layer: 0
   m_Name: AnswerCBox
-  m_TagString: Untagged
+  m_TagString: Exempt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50215,7 +50302,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974091043
   m_SortingLayer: 3
-  m_SortingOrder: 298
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.9670751, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -52829,3 +52916,4 @@ SceneRoots:
   - {fileID: 1293801320}
   - {fileID: 327822681}
   - {fileID: 693406875}
+  - {fileID: 1753124772}

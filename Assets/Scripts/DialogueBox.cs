@@ -35,12 +35,12 @@ public class DialogueBox : MonoBehaviour
 
     private DialogueBoxSender sender;
 
-    private void Start()
+    private void Start() //Create a new queue
     {
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(DialogueBoxSender dialouge)
+    public void StartDialogue(DialogueBoxSender dialouge) //Start by replacign the name and enqueing all the sentences (come from the sender)
     {
         Debug.Log("Starting convo with: " + dialouge.nameOfCharacter);
         nameText.text = dialouge.nameOfCharacter; //Set the Name
@@ -49,18 +49,12 @@ public class DialogueBox : MonoBehaviour
 
         sentences.Clear(); //Clear any leftovers  
 
-        foreach (string sentence in dialouge.mainDialogue) // Add all teh new sentence to the queue
+        foreach (string sentence in dialouge.mainDialogue) // Add all the new sentence to the queue
         {
-            //Debug.Log("enqueued");
             sentences.Enqueue(sentence);
         }
 
         inConvo = true;
-
-        //Jump Text upwards
-        //rectangle.transform.position = new Vector3(rectangle.transform.position.x, rectangle.transform.position.y + 1.2f, 0);
-        //nameText.transform.position = new Vector3(nameText.transform.position.x, nameText.transform.position.y + 1.2f, 0);
-        //dialougeText.transform.position = new Vector3(dialougeText.transform.position.x, dialougeText.transform.position.y + 1.2f, 0);
 
         //Slowly Move the rectangle up
         t = 0;
@@ -77,7 +71,7 @@ public class DialogueBox : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public void DisplayNextSentence()
+    public void DisplayNextSentence() //Calls the type sentence coroutine and dequeues old sentences
     {
         if (sentences.Count == 0) 
         {
@@ -91,7 +85,7 @@ public class DialogueBox : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence (string sentence) //Types sentences letter by letter
     {
         dialougeText.text = "";
         foreach (char letter in sentence.ToCharArray()) //loop through the character
@@ -101,7 +95,7 @@ public class DialogueBox : MonoBehaviour
         }
     }
 
-    public void EndDialogue()
+    public void EndDialogue() //When the user hits the end of a sentence queue, move the box back down
     {
         Debug.Log("End of convo");
 
@@ -117,11 +111,10 @@ public class DialogueBox : MonoBehaviour
         moving = true; //Moving Down
 
         inConvo = false;
-        if (sender.isQuestionAfter && sender.numberOfConversations > 1)
+        if (sender.isQuestionAfter && sender.numberOfConversations > 1 && quiz.SuccessfulQuiz == false) //If there is a quiz and the player has already talked to the character once, start the quiz
         {
             quiz.StartQuiz(sender);
         }
-        
     }
 
     private void Update()
@@ -143,12 +136,12 @@ public class DialogueBox : MonoBehaviour
             dialougeText.transform.position = Vector3.Lerp(dialougeTextStartPosition, dialougeTextTarget, t);
             instructionText.transform.position = Vector3.Lerp(instructionTextStartPosition, instructionTextTarget, t);
 
-            if (rectangle.transform.position.y == rectTarget.y) //DesinationReacher
+            if (rectangle.transform.position.y == rectTarget.y) //If the destination has been reached
             {
                 moving = false;
             }
         }
-        else if (inConvo && Input.GetKeyUp(KeyCode.O))
+        else if (inConvo && Input.GetKeyUp(KeyCode.O)) //Display the next sentence if the button is hit while in a conversation. 
         {
             DisplayNextSentence();
         }

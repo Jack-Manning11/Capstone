@@ -25,6 +25,8 @@ public class DialougeQuiz : MonoBehaviour
     public DialogueBoxSender burnerBox;
     public DialogueBoxSender senderCopy;
 
+    public NewMover player;
+
     public void StartQuiz(DialogueBoxSender dialogueSender)
     {
         //Make all things visible
@@ -143,8 +145,10 @@ public class DialougeQuiz : MonoBehaviour
                         box.GetComponent<SpriteRenderer>().enabled = false;
                     }
                     quizCanvas.GetComponent<Canvas>().enabled = false;
-                    senderCopy.PostQuizDialogueRight();
                     senderCopy.numberOfConversations = 1;
+                    senderCopy.PostQuizDialogueRight();
+
+                    player.moveLock = false;
                 }
                 else
                 {
@@ -156,9 +160,10 @@ public class DialougeQuiz : MonoBehaviour
                         box.GetComponent<SpriteRenderer>().enabled = false;
                     }
                     quizCanvas.GetComponent<Canvas>().enabled = false;
-                    senderCopy.PostQuizDialogueWrong();
                     senderCopy.numberOfConversations = 1;
+                    senderCopy.PostQuizDialogueWrong();
                     senderCopy = burnerBox;
+                    player.moveLock = false;
                 }
             }
 

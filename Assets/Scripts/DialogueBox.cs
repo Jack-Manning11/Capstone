@@ -27,9 +27,12 @@ public class DialogueBox : MonoBehaviour
     Vector3 instructionTextStartPosition;
     Vector3 instructionTextTarget;
     public float shiftDistance;
+    public float rectShiftDistance;
+    private float ogRectShiftDistance;
+
+    public NewMover player;
 
     public Camera mainCamera;
-
     
     public DialougeQuiz quiz;
 
@@ -38,6 +41,7 @@ public class DialogueBox : MonoBehaviour
     private void Start() //Create a new queue
     {
         sentences = new Queue<string>();
+        ogRectShiftDistance = rectShiftDistance;
     }
 
     public void StartDialogue(DialogueBoxSender dialouge) //Start by replacign the name and enqueing all the sentences (come from the sender)
@@ -59,16 +63,19 @@ public class DialogueBox : MonoBehaviour
         //Slowly Move the rectangle up
         t = 0;
         rectStartPosition = rectangle.transform.position;
-        rectTarget = new Vector3(mainCamera.transform.position.x, rectStartPosition.y + shiftDistance, 0);
+        rectTarget = new Vector3(0, -3.6f, 0);
+        rectShiftDistance = ogRectShiftDistance;
         nameStartPosition = nameText.transform.position;
-        nameTarget = new Vector3(mainCamera.transform.position.x, nameStartPosition.y + shiftDistance, 0);
+        nameTarget = new Vector3(540f, nameStartPosition.y + shiftDistance, 0);
         dialougeTextStartPosition = dialougeText.transform.position;
-        dialougeTextTarget = new Vector3(mainCamera.transform.position.x, dialougeTextStartPosition.y + shiftDistance, 0);
+        dialougeTextTarget = new Vector3(540f, dialougeTextStartPosition.y + shiftDistance, 0);
         instructionTextStartPosition = instructionText.transform.position;
-        instructionTextTarget = new Vector3(mainCamera.transform.position.x, instructionTextStartPosition.y + shiftDistance, 0);
+        instructionTextTarget = new Vector3(540f, instructionTextStartPosition.y + shiftDistance, 0);
         moving = true; //Moving Up
 
         DisplayNextSentence();
+
+        player.moveLock = true;
     }
 
     public void DisplayNextSentence() //Calls the type sentence coroutine and dequeues old sentences
@@ -101,20 +108,22 @@ public class DialogueBox : MonoBehaviour
 
         t = 0;
         rectStartPosition = rectangle.transform.position;
-        rectTarget = new Vector3(mainCamera.transform.position.x, rectStartPosition.y - shiftDistance, 0);
+        rectTarget = new Vector3(0, - 5.75f, 0);
+        rectShiftDistance = ogRectShiftDistance - 2.15f;
         nameStartPosition = nameText.transform.position;
-        nameTarget = new Vector3(mainCamera.transform.position.x, nameStartPosition.y - shiftDistance, 0);
+        nameTarget = new Vector3(540f, nameStartPosition.y - shiftDistance, 0);
         dialougeTextStartPosition = dialougeText.transform.position;
-        dialougeTextTarget = new Vector3(mainCamera.transform.position.x, dialougeTextStartPosition.y - shiftDistance, 0);
+        dialougeTextTarget = new Vector3(540f, dialougeTextStartPosition.y - shiftDistance, 0);
         instructionTextStartPosition = instructionText.transform.position;
-        instructionTextTarget = new Vector3(mainCamera.transform.position.x, instructionTextStartPosition.y - shiftDistance, 0);
+        instructionTextTarget = new Vector3(540f, instructionTextStartPosition.y - shiftDistance, 0);
         moving = true; //Moving Down
 
         inConvo = false;
-        if (sender.isQuestionAfter && sender.numberOfConversations > 1 && quiz.SuccessfulQuiz == false) //If there is a quiz and the player has already talked to the character once, start the quiz
+        if (sender.isQuestionAfter && sender.numberOfConversations > 1 && quiz.SuccessfulQuiz == false && sender.preQuizCheck.getHasBeenTalkedTo() == true) //If there is a quiz and the player has already talked to the character once, start the quiz
         {
             quiz.StartQuiz(sender);
         }
+        else player.moveLock = false;
     }
 
     private void Update()
@@ -126,10 +135,14 @@ public class DialogueBox : MonoBehaviour
 
             t += Time.deltaTime * 3;
 
+            /*
+            nameTarget.x = 0;
+            dialougeTextTarget.x = 0;
+            instructionTextTarget.x = 0;
+            */
+
             rectTarget.x = mainCamera.transform.position.x;
-            nameTarget.x = mainCamera.transform.position.x;
-            dialougeTextTarget.x = mainCamera.transform.position.x;
-            instructionTextTarget.x = mainCamera.transform.position.x;
+            rectTarget.y = mainCamera.transform.position.y + rectShiftDistance;
 
             rectangle.transform.position = Vector3.Lerp(rectStartPosition, rectTarget, t);
             nameText.transform.position = Vector3.Lerp(nameStartPosition, nameTarget, t);

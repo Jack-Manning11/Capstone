@@ -23,7 +23,14 @@ public class DialogueBoxSender : MonoBehaviour
 
     private bool canBeSelected = false;
 
-    private void OnTriggerEnter2D(Collider2D other) //When the player is in range of the dialogue box
+    private bool hasBeenTalkedTo = false;
+    public DialogueBoxSender preQuizCheck; //see if there is a person that has to have been talked to first
+    public bool getHasBeenTalkedTo()
+    {
+        return hasBeenTalkedTo;
+    }
+
+        private void OnTriggerEnter2D(Collider2D other) //When the player is in range of the dialogue box
     {
         //PLayer is in selecting range
         canBeSelected = true;
@@ -38,14 +45,21 @@ public class DialogueBoxSender : MonoBehaviour
     {
         if (canBeSelected && Input.GetKeyDown(KeyCode.O) && !dialogueBox.GetComponent<DialogueBox>().inConvo) //If the player is in range, they press O, and they are not currently in a dialogue
         {
+            hasBeenTalkedTo = true;
             numberOfConversations++;
             TriggerDiaglouge();
+        }
+
+        if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && preQuizCheck.getHasBeenTalkedTo() == true && mainDialogue != preQuestionDialogue) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
+        {
+            Debug.Log("TESTED");
+            mainDialogue = preQuestionDialogue;
         }
     }
 
     public void TriggerDiaglouge() //General call dialogue function. 
     {
-        if (numberOfConversations == 2 && isQuestionAfter) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
+        if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && preQuizCheck.getHasBeenTalkedTo() == true) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
         {
             mainDialogue = preQuestionDialogue;
         }
@@ -65,7 +79,7 @@ public class DialogueBoxSender : MonoBehaviour
     IEnumerator WaitSeconds() //Wait a set amount of time to allow the movement to finish
     {
         Debug.Log("Waiting");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         canBeSelected = true;
         dialogueBox.GetComponent<DialogueBox>().StartDialogue(this);
     }

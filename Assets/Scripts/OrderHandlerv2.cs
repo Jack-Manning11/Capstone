@@ -4,11 +4,22 @@ using UnityEngine;
 public class OrderHandlerv2 : MonoBehaviour
 {
     [SerializeField] private GameObject[] surroundingObjects;
-    [SerializeField] private GameObject overlay;
+    //[SerializeField] private GameObject overlay;
     private float lerpSpeed = 1f;
+    private GameObject player;
+    private int orderVal;
 
     void Start(){
-      SetOverlayOpacity(0f);
+      //SetOverlayOpacity(0f);
+      player = GameObject.Find("Player");
+      orderVal = surroundingObjects[0].GetComponent<Renderer>().sortingOrder;
+        for (int i = 1; i < surroundingObjects.Length; i++)
+        {
+            int sortingOrder = surroundingObjects[i].GetComponent<Renderer>().sortingOrder;
+            if (sortingOrder < orderVal){
+                orderVal = sortingOrder;
+            }
+        }
     }
 
     IEnumerator ReduceOpacity(GameObject[] objects)
@@ -95,16 +106,16 @@ public class OrderHandlerv2 : MonoBehaviour
         }
     }
 
-     private void SetOverlayOpacity(float opacity)
-    {
-        Renderer renderer = overlay.GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            Color color = renderer.material.color;
-            color.a = opacity;
-            renderer.material.color = color;
-        }
-    }
+     // private void SetOverlayOpacity(float opacity)
+     //  {
+     //      Renderer renderer = overlay.GetComponent<Renderer>();
+     //      if (renderer != null)
+     //      {
+     //          Color color = renderer.material.color;
+     //          color.a = opacity;
+     //          renderer.material.color = color;
+     //      }
+     //  }
 
     IEnumerator ChangeOpacityOverTime(GameObject obj, float targetOpacity)
     {
@@ -129,13 +140,15 @@ public class OrderHandlerv2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        StartCoroutine(ChangeOpacityOverTime(overlay, 0.95f));
+        player.GetComponent<OrderHandler>().addObjects(surroundingObjects);
+        //StartCoroutine(ChangeOpacityOverTime(overlay, 0.95f));
         StartCoroutine(ReduceOpacity(surroundingObjects));
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        StartCoroutine(ChangeOpacityOverTime(overlay, 0f));
+        player.GetComponent<OrderHandler>().removeObjects(surroundingObjects);
+        //StartCoroutine(ChangeOpacityOverTime(overlay, 0f));
         StartCoroutine(IncreaseOpacity(surroundingObjects));
     }
 }

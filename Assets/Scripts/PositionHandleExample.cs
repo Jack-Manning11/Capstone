@@ -62,7 +62,7 @@ public class PositionHandleExample : MonoBehaviour
         SpriteRenderer[] items = FindObjectsOfType<SpriteRenderer>();
 
         // Filter out items with the "Exempt" tag
-        items = System.Array.FindAll(items, item => !item.CompareTag("Exempt") && !item.CompareTag("section"));
+        items = System.Array.FindAll(items, item => !item.CompareTag("Exempt") && !item.CompareTag("Furniture") && !item.CompareTag("section"));
 
         // Sort the remaining items based on their Y position
         System.Array.Sort(items, (item1, item2) =>

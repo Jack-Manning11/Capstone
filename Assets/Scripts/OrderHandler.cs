@@ -5,60 +5,13 @@ using UnityEngine;
 public class OrderHandler : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enteredObjects = new List<GameObject>();
-    private IEnumerator reduceCoroutine;
-    private IEnumerator increaseCoroutine;
-    private float lerpSpeed = 1f;
-
-    IEnumerator ReduceOpacity(GameObject obj)
-    {
-        Renderer renderer = obj.GetComponent<Renderer>();
-        if (renderer == null)
-            yield break;
-
-        Material material = renderer.material;
-        Color startColor = material.color;
-        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0.2f);
-
-        float elapsedTime = 0f;
-        while (elapsedTime < 1f)
-        {
-            material.color = Color.Lerp(startColor, targetColor, elapsedTime);
-            elapsedTime += Time.deltaTime * lerpSpeed;
-            yield return null;
-        }
-
-        material.color = targetColor;
-    }
-
-    // Coroutine to increase opacity back to 100%
-    IEnumerator IncreaseOpacity(GameObject obj)
-    {
-        Renderer renderer = obj.GetComponent<Renderer>();
-        if (renderer == null)
-            yield break;
-
-        Material material = renderer.material;
-        Color startColor = material.color;
-        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
-
-        float elapsedTime = 0f;
-        while (elapsedTime < 1f)
-        {
-            material.color = Color.Lerp(startColor, targetColor, elapsedTime);
-            elapsedTime += Time.deltaTime * lerpSpeed;
-            yield return null;
-        }
-
-        material.color = targetColor;
-    }
+    private int baseLayer = 496;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         GameObject triggerObject = other.gameObject;
-        if (!enteredObjects.Contains(triggerObject) && triggerObject.tag != "IgnoreOpacity"){
+        if (!enteredObjects.Contains(triggerObject) && triggerObject.tag != "Exempt"){
             enteredObjects.Add(triggerObject);
-            reduceCoroutine = ReduceOpacity(triggerObject);
-            StartCoroutine(reduceCoroutine);
             UpdateOrderInLayer();
         }
     }
@@ -69,8 +22,6 @@ public class OrderHandler : MonoBehaviour
 
         if (enteredObjects.Contains(triggerObject)){
             enteredObjects.Remove(triggerObject);
-            increaseCoroutine = IncreaseOpacity(triggerObject);
-            StartCoroutine(increaseCoroutine);
             UpdateOrderInLayer();
         }
     }
@@ -102,5 +53,17 @@ public class OrderHandler : MonoBehaviour
       } else {
         GetComponent<SpriteRenderer>().sortingOrder = 999;
       }
+    }
+
+    public void addObjects(GameObject[] gameObjects){
+        foreach (GameObject obj in gameObjects){
+            enteredObjects.Add(obj);
+        }
+    }
+
+    public void removeObjects(GameObject[] gameObjects){
+        foreach (GameObject obj in gameObjects){
+            enteredObjects.Remove(obj);
+        }
     }
 }

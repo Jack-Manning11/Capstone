@@ -9,6 +9,7 @@ TagManager:
   - section
   - DialogueBoxObj
   - IgnoreOpacity
+  - Furniture
   layers:
   - Default
   - TransparentFX

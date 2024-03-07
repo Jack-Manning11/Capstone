@@ -38,6 +38,8 @@ public class DialogueBox : MonoBehaviour
 
     private DialogueBoxSender sender;
 
+    public Canvas canvas;
+
     private void Start() //Create a new queue
     {
         sentences = new Queue<string>();
@@ -65,12 +67,15 @@ public class DialogueBox : MonoBehaviour
         rectStartPosition = rectangle.transform.position;
         rectTarget = new Vector3(0, -3.6f, 0);
         rectShiftDistance = ogRectShiftDistance;
+
         nameStartPosition = nameText.transform.position;
-        nameTarget = new Vector3(540f, nameStartPosition.y + shiftDistance, 0);
+        nameTarget = new Vector3(canvas.transform.position.x, nameStartPosition.y + ((canvas.GetComponent<RectTransform>().rect.height)/3f), 0);
+
         dialougeTextStartPosition = dialougeText.transform.position;
-        dialougeTextTarget = new Vector3(540f, dialougeTextStartPosition.y + shiftDistance, 0);
+        dialougeTextTarget = new Vector3(canvas.transform.position.x, dialougeTextStartPosition.y + ((canvas.GetComponent<RectTransform>().rect.height) / 3f), 0);
+
         instructionTextStartPosition = instructionText.transform.position;
-        instructionTextTarget = new Vector3(540f, instructionTextStartPosition.y + shiftDistance, 0);
+        instructionTextTarget = new Vector3(canvas.transform.position.x, instructionTextStartPosition.y + ((canvas.GetComponent<RectTransform>().rect.height) / 3f), 0);
         moving = true; //Moving Up
 
         DisplayNextSentence();
@@ -110,12 +115,15 @@ public class DialogueBox : MonoBehaviour
         rectStartPosition = rectangle.transform.position;
         rectTarget = new Vector3(0, - 5.75f, 0);
         rectShiftDistance = ogRectShiftDistance - 2.15f;
+
         nameStartPosition = nameText.transform.position;
-        nameTarget = new Vector3(540f, nameStartPosition.y - shiftDistance, 0);
+        nameTarget = new Vector3(canvas.transform.position.x, nameStartPosition.y - ((canvas.GetComponent<RectTransform>().rect.height) / 3f), 0);
+
         dialougeTextStartPosition = dialougeText.transform.position;
-        dialougeTextTarget = new Vector3(540f, dialougeTextStartPosition.y - shiftDistance, 0);
+        dialougeTextTarget = new Vector3(canvas.transform.position.x, dialougeTextStartPosition.y - ((canvas.GetComponent<RectTransform>().rect.height) / 3f), 0);
+
         instructionTextStartPosition = instructionText.transform.position;
-        instructionTextTarget = new Vector3(540f, instructionTextStartPosition.y - shiftDistance, 0);
+        instructionTextTarget = new Vector3(canvas.transform.position.x, instructionTextStartPosition.y - ((canvas.GetComponent<RectTransform>().rect.height) / 3f), 0);
         moving = true; //Moving Down
 
         inConvo = false;
@@ -128,6 +136,11 @@ public class DialogueBox : MonoBehaviour
 
     private void Update()
     {
+        if (quiz.inConvo)
+        {
+            inConvo = true;
+        }
+
         if (moving)
         {
             if (rectTarget.y > rectangle.transform.position.y) Debug.Log("Moving Up");

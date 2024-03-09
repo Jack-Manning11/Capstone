@@ -37,6 +37,9 @@ public class NewMover : MonoBehaviour
     void Update() {
       if(moveLock == false){
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        walkSpeed = 2.5f;
+      } else {
+        walkSpeed = 0f;
       }
 
       // Check if moving diagonally
@@ -44,7 +47,6 @@ public class NewMover : MonoBehaviour
           // Halve the y component
           direction.y *= 0.5f;
       }
-
       body.velocity = direction * walkSpeed;
 
       List<Sprite> directionSprites = GetSprites();

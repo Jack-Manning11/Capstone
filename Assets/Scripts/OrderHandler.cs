@@ -51,7 +51,7 @@ public class OrderHandler : MonoBehaviour
             GetComponent<SpriteRenderer>().sortingOrder = playerOrder;
         }
       } else {
-        GetComponent<SpriteRenderer>().sortingOrder = 999;
+        GetComponent<SpriteRenderer>().sortingOrder = 600;
       }
     }
 

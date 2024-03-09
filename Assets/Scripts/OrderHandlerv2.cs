@@ -140,14 +140,12 @@ public class OrderHandlerv2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        player.GetComponent<OrderHandler>().addObjects(surroundingObjects);
         //StartCoroutine(ChangeOpacityOverTime(overlay, 0.95f));
         StartCoroutine(ReduceOpacity(surroundingObjects));
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        player.GetComponent<OrderHandler>().removeObjects(surroundingObjects);
         //StartCoroutine(ChangeOpacityOverTime(overlay, 0f));
         StartCoroutine(IncreaseOpacity(surroundingObjects));
     }

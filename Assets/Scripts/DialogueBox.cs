@@ -53,6 +53,8 @@ public class DialogueBox : MonoBehaviour
 
         sender = dialouge;
 
+        player.moveLock = true;
+
         sentences.Clear(); //Clear any leftovers  
 
         foreach (string sentence in dialouge.mainDialogue) // Add all the new sentence to the queue
@@ -80,7 +82,7 @@ public class DialogueBox : MonoBehaviour
 
         DisplayNextSentence();
 
-        player.moveLock = true;
+        //player.moveLock = true;
     }
 
     public void DisplayNextSentence() //Calls the type sentence coroutine and dequeues old sentences

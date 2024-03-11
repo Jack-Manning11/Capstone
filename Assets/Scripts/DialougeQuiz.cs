@@ -148,7 +148,7 @@ public class DialougeQuiz : MonoBehaviour
                     senderCopy.numberOfConversations = 1;
                     senderCopy.PostQuizDialogueRight();
 
-                    player.moveLock = false;
+                    //.moveLock = false;
                 }
                 else
                 {
@@ -163,7 +163,7 @@ public class DialougeQuiz : MonoBehaviour
                     senderCopy.numberOfConversations = 1;
                     senderCopy.PostQuizDialogueWrong();
                     senderCopy = burnerBox;
-                    player.moveLock = false;
+                   // player.moveLock = false;
                 }
             }
 

@@ -35,35 +35,40 @@ public class NewMover : MonoBehaviour
     private Vector2 direction;
 
     void Update() {
-      if(moveLock == false){
+    if(moveLock == false){
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         walkSpeed = 2.5f;
-      } else {
+    } else {
+        direction = Vector2.zero; // Set direction to zero if moveLock is true
+        isMoving = false; // Set isMoving to false when moveLock is true
         walkSpeed = 0f;
-      }
+    }
+    if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0 && Mathf.Abs(Input.GetAxis("Vertical")) > 0)
+    {
+    // If moving diagonally, divide the vertical velocity by 2
+      direction.y /= 2f;
+    }
+    body.velocity = direction * walkSpeed;
+    // Check if the player is moving (if velocity is non-zero)
+    if (body.velocity != Vector2.zero) {
+        isMoving = true;
+    }
 
-      // Check if moving diagonally
-      if (Mathf.Abs(direction.x) > 0 && Mathf.Abs(direction.y) > 0) {
-          // Halve the y component
-          direction.y *= 0.5f;
-      }
-      body.velocity = direction * walkSpeed;
+    List<Sprite> directionSprites = GetSprites();
 
-      List<Sprite> directionSprites = GetSprites();
-
-      if(isMoving){
+    if(isMoving){
         float playTime = Time.time - idleTime;
         int frame = Mathf.RoundToInt(playTime * frameRate) % 8;
 
         spriteRenderer.sprite = directionSprites[frame];
-      } else {
+    } else {
         idleTime = Time.time;
         List<Sprite> idleSprites = GetIdleSprites();
         int frame = Mathf.RoundToInt(idleTime * frameRate) % 8;
 
         spriteRenderer.sprite = idleSprites[frame];
-      }
     }
+}
 
     List<Sprite> GetSprites(){
       List<Sprite> selectedSprites = null;

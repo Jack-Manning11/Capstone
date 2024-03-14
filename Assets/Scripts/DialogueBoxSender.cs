@@ -57,7 +57,7 @@ public class DialogueBoxSender : MonoBehaviour
         }
     }
 
-    public void TriggerDiaglouge() //General call dialogue function. 
+    public void TriggerDiaglouge() //General call dialogue function.
     {
         if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && preQuizCheck.getHasBeenTalkedTo() == true) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
         {
@@ -73,7 +73,7 @@ public class DialogueBoxSender : MonoBehaviour
         {
             dialogueBox.GetComponent<DialogueBox>().StartDialogue(this);
         }
-        
+
     }
 
     IEnumerator WaitSeconds() //Wait a set amount of time to allow the movement to finish

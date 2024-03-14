@@ -33,7 +33,7 @@ public class DialogueBox : MonoBehaviour
     public NewMover player;
 
     public Camera mainCamera;
-    
+
     public DialougeQuiz quiz;
 
     private DialogueBoxSender sender;
@@ -55,7 +55,7 @@ public class DialogueBox : MonoBehaviour
 
         player.moveLock = true;
 
-        sentences.Clear(); //Clear any leftovers  
+        sentences.Clear(); //Clear any leftovers
 
         foreach (string sentence in dialouge.mainDialogue) // Add all the new sentence to the queue
         {
@@ -87,7 +87,7 @@ public class DialogueBox : MonoBehaviour
 
     public void DisplayNextSentence() //Calls the type sentence coroutine and dequeues old sentences
     {
-        if (sentences.Count == 0) 
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
@@ -169,7 +169,7 @@ public class DialogueBox : MonoBehaviour
                 moving = false;
             }
         }
-        else if (inConvo && Input.GetKeyUp(KeyCode.O)) //Display the next sentence if the button is hit while in a conversation. 
+        else if (inConvo && Input.GetKeyUp(KeyCode.O)) //Display the next sentence if the button is hit while in a conversation.
         {
             DisplayNextSentence();
         }

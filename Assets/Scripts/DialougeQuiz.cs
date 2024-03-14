@@ -44,7 +44,7 @@ public class DialougeQuiz : MonoBehaviour
         answerBText.text = dialogueSender.answerB;
         answerCText.text = dialogueSender.answerC;
         answerDText.text = dialogueSender.answerD;
-        
+
         //Type all the answers
         StopAllCoroutines();
         StartCoroutine(TypeSentence(dialogueSender.question, questionText));
@@ -170,7 +170,7 @@ public class DialougeQuiz : MonoBehaviour
             //Determines the movement of the players hovering icon
             if (currentlySelectedBox == 1)
             {
-                if (Input.GetKeyDown(KeyCode.D)) 
+                if (Input.GetKeyDown(KeyCode.D))
                 {
                     currentlySelectedBox = 3;
                 }

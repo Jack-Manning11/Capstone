@@ -20,21 +20,23 @@ public class unlockableDoor : MonoBehaviour
     void Update()
     {
       if(checkWin()){
-        doorToUnlock.GetComponent<SpriteRenderer>().enabled = false;
-        PolygonCollider2D[] polygonColliders = doorToUnlock.GetComponents<PolygonCollider2D>();
-        foreach(PolygonCollider2D collider in polygonColliders){
-          collider.enabled = false;
-        }
-        PolygonCollider2D trigger = GetComponent<PolygonCollider2D>();
-        trigger.enabled = false;
-        isInteracting = false;
-        clearHighlights();
-        SpriteRenderer popupSprite = popup.GetComponent<SpriteRenderer>();
-        popupSprite.enabled = false;
-        foreach (GameObject number in numberSlots){
-          number.GetComponent<SpriteRenderer>().enabled = false;
-        }
-        player.GetComponent<NewMover>().setMoveLock(false);
+          doorToUnlock.GetComponent<SpriteRenderer>().enabled = false;
+          PolygonCollider2D[] polygonColliders = doorToUnlock.GetComponents<PolygonCollider2D>();
+          foreach(PolygonCollider2D collider in polygonColliders){
+            collider.enabled = false;
+          }
+          PolygonCollider2D trigger = GetComponent<PolygonCollider2D>();
+          trigger.enabled = false;
+          isInteracting = false;
+          pos = -1;
+          clearHighlights();
+          SpriteRenderer popupSprite = popup.GetComponent<SpriteRenderer>();
+          popupSprite.enabled = false;
+          indexes = new int[] {0, 0, 0, 0};
+          foreach (GameObject number in numberSlots){
+            number.GetComponent<SpriteRenderer>().enabled = false;
+          }
+          player.GetComponent<NewMover>().setMoveLock(false);
       }
       if(isInteracting){
         if(Input.GetKeyDown(KeyCode.P)){
@@ -115,6 +117,7 @@ public class unlockableDoor : MonoBehaviour
         SpriteRenderer popupSprite = popup.GetComponent<SpriteRenderer>();
         player.GetComponent<NewMover>().setMoveLock(true);
         popupSprite.enabled = true;
+        pos = 0;
         foreach (GameObject number in numberSlots){
           number.GetComponent<SpriteRenderer>().enabled = true;
         }

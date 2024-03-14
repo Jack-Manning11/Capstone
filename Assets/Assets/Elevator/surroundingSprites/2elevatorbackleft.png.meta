@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9430f09b908543e88775d5f390097d5
+guid: 66345c49ee2084127a4df88d20224b0a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,28 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: 1bfrontleftwall_0
-      rect:
-        serializedVersion: 2
-        x: 254
-        y: 95
-        width: 218
-        height: 189
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e459d9a898fb64e38bd26db2d343473e
-      internalID: 1843913586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -140,8 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      1bfrontleftwall_0: 1843913586
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

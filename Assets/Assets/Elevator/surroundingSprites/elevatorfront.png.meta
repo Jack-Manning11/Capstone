@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9430f09b908543e88775d5f390097d5
+guid: 5861c65d84b294787bd6777dde8cfa88
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1bfrontleftwall_0
+      name: elevatorfront_0
       rect:
         serializedVersion: 2
-        x: 254
-        y: 95
-        width: 218
-        height: 189
+        x: 10
+        y: 8
+        width: 12
+        height: 31
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e459d9a898fb64e38bd26db2d343473e
-      internalID: 1843913586
+      spriteID: dd89453c6d9144dc1baa6b23e8be8047
+      internalID: 634966244
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      1bfrontleftwall_0: 1843913586
+      elevatorfront_0: 634966244
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

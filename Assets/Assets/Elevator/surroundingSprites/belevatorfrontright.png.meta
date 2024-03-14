@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9430f09b908543e88775d5f390097d5
+guid: b9a1131894b7243d9ace7954d563bffc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1bfrontleftwall_0
+      name: belevatorfrontright_0
       rect:
         serializedVersion: 2
-        x: 254
-        y: 95
-        width: 218
-        height: 189
+        x: 688
+        y: 221
+        width: 32
+        height: 83
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e459d9a898fb64e38bd26db2d343473e
-      internalID: 1843913586
+      spriteID: 611aa4f696722439da8f6cf14a6decc7
+      internalID: -389577654
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      1bfrontleftwall_0: 1843913586
+      belevatorfrontright_0: -389577654
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

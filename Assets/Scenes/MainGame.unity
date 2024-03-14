@@ -11357,7 +11357,7 @@ Transform:
   m_GameObject: {fileID: 443854995}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.625, y: 18.09375, z: 0}
+  m_LocalPosition: {x: -0.53125, y: 0.03125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17864,7 +17864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5972be4bb07a8074d9c5f5b16115ccac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.782
+      value: -0.78124994
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5972be4bb07a8074d9c5f5b16115ccac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29501,6 +29501,10 @@ MonoBehaviour:
   - Hey there stranger!
   - Names, Bacus...
   - ...John Bacus...
+  - 'I teach the Design Foundations class here in ATLAS. '
+  - What's Design Foundations?
+  - Well it's ATLAS premire class for new and transfer students. It teaches the fundementals
+    of design in general, and even applies it in practice!
   isQuestionAfter: 0
   preQuestionDialogue: []
   postQuestionDialogueRight: []

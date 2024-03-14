@@ -12,7 +12,7 @@ public class unlockableDoor : MonoBehaviour
     [SerializeField] private bool inRange = false;
     private bool isInteracting = false;
     private int pos = 0;
-    private bool solved = false;
+    //private bool solved = false;
     private int[] solution = {1,1,2,5};
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject doorToUnlock;

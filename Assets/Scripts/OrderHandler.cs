@@ -5,7 +5,7 @@ using UnityEngine;
 public class OrderHandler : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enteredObjects = new List<GameObject>();
-    private int baseLayer = 496;
+    //private int baseLayer = 496;
 
     public void OnTriggerEnter2D(Collider2D other)
     {

@@ -219,7 +219,7 @@ public class Transporter : MonoBehaviour
     {
         foreach(GameObject elevatorPiece in elevatorItems)
         {
-            elevatorPiece.GetComponent<SpriteRenderer>().sortingOrder = elevatorPiece.GetComponent<SpriteRenderer>().sortingOrder + (Player.GetComponent<SpriteRenderer>().sortingOrder - premoveSortingOrder);
+            if (elevatorPiece.GetComponent<SpriteRenderer>().sortingLayerName != "UI") elevatorPiece.GetComponent<SpriteRenderer>().sortingOrder = elevatorPiece.GetComponent<SpriteRenderer>().sortingOrder + (Player.GetComponent<SpriteRenderer>().sortingOrder - premoveSortingOrder);
         }
         yield return null;
     }

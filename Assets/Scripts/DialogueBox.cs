@@ -110,8 +110,6 @@ public class DialogueBox : MonoBehaviour
         }
     }
 
-    private bool preQuizCheckBool = false;
-
     public void EndDialogue() //When the user hits the end of a sentence queue, move the box back down
     {
         Debug.Log("End of convo");
@@ -135,14 +133,14 @@ public class DialogueBox : MonoBehaviour
 
         if (sender.preQuizCheck != null && sender.preQuizCheck.getHasBeenTalkedTo() == true)
         {
-            preQuizCheckBool = true;
+            sender.preQuizCheckBool = true;
         }
         else if(sender.preQuizCheck == null)
         {
-            preQuizCheckBool = true;
+            sender.preQuizCheckBool = true;
         }
 
-        if (sender.isQuestionAfter && sender.numberOfConversations > 1 && quiz.SuccessfulQuiz == false && preQuizCheckBool == true) //If there is a quiz and the player has already talked to the character once, start the quiz
+        if (sender.isQuestionAfter && sender.numberOfConversations > 1 && quiz.SuccessfulQuiz == false && sender.preQuizCheckBool == true) //If there is a quiz and the player has already talked to the character once, start the quiz
         {
             quiz.StartQuiz(sender);
         }

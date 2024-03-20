@@ -25,6 +25,7 @@ public class DialogueBoxSender : MonoBehaviour
 
     private bool hasBeenTalkedTo = false;
     public DialogueBoxSender preQuizCheck; //see if there is a person that has to have been talked to first
+    public bool preQuizCheckBool = false;
     public bool getHasBeenTalkedTo()
     {
         return hasBeenTalkedTo;
@@ -73,6 +74,11 @@ public class DialogueBoxSender : MonoBehaviour
         else if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck == null && mainDialogue != preQuestionDialogue)
         {
             Debug.Log("PreQuestionDialogue, no pre quiz check");
+            mainDialogue = preQuestionDialogue;
+        }
+        else if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && mainDialogue != preQuestionDialogue)
+        {
+            Debug.Log("PreQuestionDialogue, pre quiz check");
             mainDialogue = preQuestionDialogue;
         }
 

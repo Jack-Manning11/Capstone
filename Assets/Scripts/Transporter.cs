@@ -1,51 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Transporter : MonoBehaviour
 {
-    public Vector2 targetPosition;
+        public Vector2 targetPosition;
 
-    [SerializeField] private GameObject ElevatorUIOffUp;
-    [SerializeField] private GameObject ElevatorUIOffDown;
-    [SerializeField] private GameObject UpUiOn;
-    [SerializeField] private GameObject DownUIOn;
+        [SerializeField] private GameObject ElevatorUIOffUp;
+        [SerializeField] private GameObject ElevatorUIOffDown;
+        [SerializeField] private GameObject ElevatorUIOffDownCracked;
+        [SerializeField] private GameObject UpUiOn;
+        [SerializeField] private GameObject DownUIOn;
 
-    [SerializeField] private GameObject Player;
-    [SerializeField] private GameObject Elevator;
-    [SerializeField] private List<GameObject> ElevatorList = new List<GameObject>();
+        [SerializeField] private GameObject Player;
+        [SerializeField] private GameObject Elevator;
+        [SerializeField] private List<GameObject> ElevatorList = new List<GameObject>();
 
-    [SerializeField] private int TransporterFloor; //-1 for 1b, 0 for main, 1 for 2nd floor
+        [SerializeField] private int TransporterFloor; //-1 for 1b, 0 for main, 1 for 2nd floor
 
-    private bool inElevator = false;
-    private bool playerSelectingDirection = false;
+        private bool inElevator = false;
+        private bool playerSelectingDirection = false;
 
-    private bool upIsOn = false;
-    private bool downIsOn = false;
+        private bool upIsOn = false;
+        private bool downIsOn = false;
 
-    private int selectedButton = 2; //0 for up, 1 for down
+        private int selectedButton = 2; //0 for up, 1 for down
 
-    [SerializeField] private float moveDistance; //Needs to stay consistant between floors
+        [SerializeField] private float moveDistance; //Needs to stay consistant between floors
 
-    public Animator animator;
+        public Animator animator;
 
-    public bool movingUp = false;
-    public bool movingDown = false;
+        public bool movingUp = false;
+        public bool movingDown = false;
 
-    private bool notMoving = true;
+        private bool notMoving = true;
 
-    float t;
-    Vector3 startPosition;
-    Vector3 ElevatorStartPosition;
-    Vector3 target;
-    Vector3 elevatorTarget;
+        float t;
+        Vector3 startPosition;
+        Vector3 ElevatorStartPosition;
+        Vector3 target;
+        Vector3 elevatorTarget;
 
-    private int premoveSortingOrder;
-    public List<GameObject> elevatorItems;
+        private int premoveSortingOrder;
+        public List<GameObject> elevatorItems;
+
+        //Story Based Controls
+        private int gameStage = 1;
+        //1 is the first floor (elevator only goes up)
+        //2 is the second floor (evevator is broken until the sound puzzle is solved)
+        private bool soundLabDone = false;
+        public void setSoundLabDone(bool b)
+        {
+            soundLabDone = b;
+        }
+
+        public SmoothCamera mainCamera;
+
+        public AudioSource bgMusic;
+        public AudioSource elevatorMusic;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (gameStage != 1) ElevatorUIOffDown.GetComponent<SpriteRenderer>().enabled = true;
+        else ElevatorUIOffDownCracked.GetComponent<SpriteRenderer>().enabled = true;
+        ElevatorUIOffUp.GetComponent<SpriteRenderer>().enabled = true;
         playerSelectingDirection = false;
         selectedButton = 2;
         inElevator = true;
@@ -55,6 +76,7 @@ public class Transporter : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         ElevatorUIOffDown.GetComponent<SpriteRenderer>().enabled = false;
+        ElevatorUIOffDownCracked.GetComponent<SpriteRenderer>().enabled = false;
         ElevatorUIOffUp.GetComponent<SpriteRenderer>().enabled = false;
         UpUiOn.GetComponent<SpriteRenderer>().enabled = false;
         DownUIOn.GetComponent<SpriteRenderer>().enabled = false;
@@ -64,6 +86,10 @@ public class Transporter : MonoBehaviour
 
     private void Update()
     {
+        //Should happen at any point
+        if (soundLabDone) gameStage = 2;
+
+
         if (inElevator && notMoving)
         {
             //Debug.Log("in the elevator");
@@ -73,13 +99,11 @@ public class Transporter : MonoBehaviour
             {
                 animator.SetBool("Open", false); //Close Door
 
-                ElevatorUIOffDown.GetComponent<SpriteRenderer>().enabled = true;
-                ElevatorUIOffUp.GetComponent<SpriteRenderer>().enabled = true;
-
-                playerSelectingDirection = true; //PLayer has begun the direction selection process
+                playerSelectingDirection = true; //Player has begun the direction selection process
                 Player.GetComponent<NewMover>().enabled = false;
 
                 selectedButton = 0;
+                upIsOn = false;
             }
 
             //Once the player has chosen to move:
@@ -89,7 +113,7 @@ public class Transporter : MonoBehaviour
                 {
                     selectedButton = 0;
                 }
-                if (Input.GetKeyUp(KeyCode.S))
+                if (Input.GetKeyUp(KeyCode.S) && gameStage != 1)
                 {
                     selectedButton = 1;
                 }
@@ -140,6 +164,10 @@ public class Transporter : MonoBehaviour
                         target = new Vector3(startPosition.x, startPosition.y + moveDistance, 0);
                         elevatorTarget = new Vector3(Elevator.transform.position.x, Elevator.transform.position.y + moveDistance, 0);
                         premoveSortingOrder = Player.GetComponent<SpriteRenderer>().sortingOrder;
+                        mainCamera.smoothness = 10;
+
+                        elevatorMusic.Play();
+                        bgMusic.Pause();
                     }
                     else
                     {
@@ -161,6 +189,11 @@ public class Transporter : MonoBehaviour
                         target = new Vector3(startPosition.x, startPosition.y - moveDistance, 0);
                         elevatorTarget = new Vector3(Elevator.transform.position.x, Elevator.transform.position.y - moveDistance,0);
                         premoveSortingOrder = Player.GetComponent<SpriteRenderer>().sortingOrder;
+
+                        mainCamera.smoothness = 10;
+
+                        elevatorMusic.Play();
+                        bgMusic.Pause();
                     }
                     else
                     {
@@ -179,6 +212,8 @@ public class Transporter : MonoBehaviour
             if (Player.transform.position.y == target.y) //DesinationReacher
             {
                 Debug.Log("Reached Up");
+                TransporterFloor++;
+                mainCamera.smoothness = 2;
                 notMoving = true;
                 selectedButton = 2;
                 movingUp = false;
@@ -197,6 +232,8 @@ public class Transporter : MonoBehaviour
             if (Player.transform.position.y == target.y)
             {
                 Debug.Log("Reached Down");
+                TransporterFloor--;
+                mainCamera.smoothness = 2;
                 notMoving = true;
                 selectedButton = 2;
                 movingDown = false;
@@ -210,8 +247,10 @@ public class Transporter : MonoBehaviour
     IEnumerator PlayerMoveUnlock()
     {
         Debug.Log("StartWait");
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
         Debug.Log("EndWait");
+        elevatorMusic.Stop();
+        bgMusic.UnPause();
         Player.GetComponent<NewMover>().enabled = true;
     }
 

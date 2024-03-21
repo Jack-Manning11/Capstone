@@ -7,7 +7,7 @@ public class SmoothCamera : MonoBehaviour
   public Transform target;
 
   // Smoothing factor for the camera follow (adjust as needed)
-  [SerializeField] private float smoothness = 0.5f;
+  public float smoothness = 0.5f;
 
   private void LateUpdate()
   {

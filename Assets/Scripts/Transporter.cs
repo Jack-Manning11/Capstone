@@ -87,13 +87,11 @@ public class Transporter : MonoBehaviour
     private void Update()
     {
         //Should happen at any point
-        if (soundLabDone) gameStage = 2;
+        if (soundLabDone && gameStage < 2) gameStage = 2;
 
-
+        //Standing in the Elevatoy
         if (inElevator && notMoving)
         {
-            //Debug.Log("in the elevator");
-
             //Wait for player to select
             if (Input.GetKeyUp(KeyCode.O) && playerSelectingDirection == false)
             {
@@ -172,6 +170,7 @@ public class Transporter : MonoBehaviour
                     else
                     {
                         Debug.Log("Already at the top floor");
+                        //Play a no go sound
                     }
                 }
                 else if (selectedButton == 1)
@@ -186,8 +185,16 @@ public class Transporter : MonoBehaviour
                         t = 0;
                         startPosition = Player.transform.position;
                         ElevatorStartPosition = Elevator.transform.position;
-                        target = new Vector3(startPosition.x, startPosition.y - moveDistance, 0);
-                        elevatorTarget = new Vector3(Elevator.transform.position.x, Elevator.transform.position.y - moveDistance,0);
+                        if (gameStage == 2) //After the sound puzzle, go all the way to the basement
+                        {
+                            target = new Vector3(startPosition.x, startPosition.y - (2f * moveDistance), 0);
+                            elevatorTarget = new Vector3(Elevator.transform.position.x, Elevator.transform.position.y - (2f * moveDistance), 0);
+                        }
+                        else
+                        {
+                            target = new Vector3(startPosition.x, startPosition.y - moveDistance, 0);
+                            elevatorTarget = new Vector3(Elevator.transform.position.x, Elevator.transform.position.y - moveDistance, 0);
+                        }
                         premoveSortingOrder = Player.GetComponent<SpriteRenderer>().sortingOrder;
 
                         mainCamera.smoothness = 10;
@@ -198,6 +205,7 @@ public class Transporter : MonoBehaviour
                     else
                     {
                         Debug.Log("Already at the bottom floor");
+                        //Play a no go sound
                     }
                 }
             }
@@ -225,14 +233,20 @@ public class Transporter : MonoBehaviour
         else if (movingDown == true)
         {
 
-            t += Time.deltaTime / 10;
+            if (gameStage == 2) t += Time.deltaTime / 20;
+            else t += Time.deltaTime / 10;
             Player.transform.position = Vector3.Lerp(startPosition, target, t);
             Elevator.transform.position = Vector3.Lerp(ElevatorStartPosition, elevatorTarget, t);
 
             if (Player.transform.position.y == target.y)
             {
                 Debug.Log("Reached Down");
-                TransporterFloor--;
+                if (gameStage == 2)
+                {
+                    TransporterFloor = TransporterFloor - 2;
+                    gameStage = 3;
+                }
+                else TransporterFloor--;
                 mainCamera.smoothness = 2;
                 notMoving = true;
                 selectedButton = 2;

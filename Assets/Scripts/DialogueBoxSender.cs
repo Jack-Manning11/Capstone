@@ -50,7 +50,7 @@ public class DialogueBoxSender : MonoBehaviour
         {
             hasBeenTalkedTo = true;
             numberOfConversations++;
-            TriggerDiaglouge();
+            TriggerDialogue();
         }
         /*
         if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && preQuizCheck.getHasBeenTalkedTo() == true && mainDialogue != preQuestionDialogue) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
@@ -66,7 +66,7 @@ public class DialogueBoxSender : MonoBehaviour
         */
     }
 
-    public void TriggerDiaglouge() //General call dialogue function.
+    public void TriggerDialogue() //General call dialogue function.
     {
         if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && preQuizCheck.getHasBeenTalkedTo() == true && mainDialogue != preQuestionDialogue) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
         {

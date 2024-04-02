@@ -49,9 +49,17 @@ public class Transporter : MonoBehaviour
 
         //Story Based Controls
         private int gameStage = 1;
-        //1 is the first floor (elevator only goes up)
-        //2 is the second floor (evevator is broken until the sound puzzle is solved)
-        private bool soundLabDone = false;
+        public void setGameStage(int i)
+        {
+            gameStage = i;
+        }
+        public int getGameStage()
+        {
+            return gameStage;
+        }   
+    //1 is the first floor (elevator only goes up)
+    //2 is the second floor (evevator is broken until the sound puzzle is solved)
+    private bool soundLabDone = false;
         public void setSoundLabDone(bool b)
         {
             soundLabDone = b;
@@ -107,11 +115,11 @@ public class Transporter : MonoBehaviour
             //Once the player has chosen to move:
             else if (playerSelectingDirection == true)
             {
-                if (Input.GetKeyUp(KeyCode.W))
+                if (Input.GetKeyUp(KeyCode.W) && gameStage != 3)
                 {
                     selectedButton = 0;
                 }
-                if (Input.GetKeyUp(KeyCode.S) && gameStage != 1)
+                if (Input.GetKeyUp(KeyCode.S) && gameStage != 1 && gameStage != 3)
                 {
                     selectedButton = 1;
                 }

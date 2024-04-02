@@ -10,10 +10,9 @@ public class ResultSoundLab : MonoBehaviour
 
     void Update()
     {
-        if (dialogueQuiz.senderCopy.nameOfCharacter == dialogueBoxSender.nameOfCharacter && dialogueQuiz.SuccessfulQuiz == true)
+        if (dialogueQuiz.senderCopy.nameOfCharacter == dialogueBoxSender.nameOfCharacter && dialogueBoxSender.SuccessfulQuiz == true)
         {
             Debug.Log("Should Disable");
-            dialogueQuiz.SuccessfulQuiz = false;
             dialogueQuiz.senderCopy = dialogueQuiz.burnerBox;
             elevator.setSoundLabDone(true);
         }

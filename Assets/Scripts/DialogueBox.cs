@@ -140,8 +140,9 @@ public class DialogueBox : MonoBehaviour
             sender.preQuizCheckBool = true;
         }
 
-        if (sender.isQuestionAfter && sender.numberOfConversations > 1 && quiz.SuccessfulQuiz == false && sender.preQuizCheckBool == true) //If there is a quiz and the player has already talked to the character once, start the quiz
+        if (sender.isQuestionAfter && sender.numberOfConversations > 1 && sender.SuccessfulQuiz == false && sender.preQuizCheckBool == true) //If there is a quiz and the player has already talked to the character once, start the quiz
         {
+            Debug.Log("Quiz Start");
             quiz.StartQuiz(sender);
         }
         else player.moveLock = false;

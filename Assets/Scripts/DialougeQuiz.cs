@@ -20,7 +20,6 @@ public class DialougeQuiz : MonoBehaviour
     public Camera mainCamera;
 
     private int correctAnswerIndex;
-    public bool SuccessfulQuiz = false;
 
     public DialogueBoxSender burnerBox;
     public DialogueBoxSender senderCopy;
@@ -138,14 +137,13 @@ public class DialougeQuiz : MonoBehaviour
                 if (currentlySelectedBox == correctAnswerIndex)
                 {
                     //Success!
-                    SuccessfulQuiz = true;
                     inConvo = false;
                     foreach (GameObject box in boxes)
                     {
                         box.GetComponent<SpriteRenderer>().enabled = false;
                     }
                     quizCanvas.GetComponent<Canvas>().enabled = false;
-                    senderCopy.numberOfConversations = 1;
+                    senderCopy.numberOfConversations = 3;
                     senderCopy.PostQuizDialogueRight();
 
                     //.moveLock = false;
@@ -153,7 +151,6 @@ public class DialougeQuiz : MonoBehaviour
                 else
                 {
                     //Failure!
-                    SuccessfulQuiz = false;
                     inConvo = false;
                     foreach (GameObject box in boxes)
                     {

@@ -19,6 +19,8 @@ public class DialogueBoxSender : MonoBehaviour
 
     public int numberOfConversations = 0;
 
+    public bool SuccessfulQuiz = false;
+
     [SerializeField] private GameObject dialogueBox;
 
     private bool canBeSelected = false;
@@ -81,6 +83,10 @@ public class DialogueBoxSender : MonoBehaviour
             Debug.Log("PreQuestionDialogue, pre quiz check");
             mainDialogue = preQuestionDialogue;
         }
+        else if (numberOfConversations == 3)
+        {
+            mainDialogue = postQuestionDialogueRight;
+        }
 
         if (dialogueBox.GetComponent<DialogueBox>().moving == true) //If the box is moving, prevent the trigger until it stops moving (prevents movement overriding each other)
         {
@@ -105,6 +111,8 @@ public class DialogueBoxSender : MonoBehaviour
     public void PostQuizDialogueRight() //If the quiz is answered correctly, replace the dialogue with post question correct dialouge and then call the dialogue box
     {
         mainDialogue = postQuestionDialogueRight;
+        SuccessfulQuiz = true;
+
         if (dialogueBox.GetComponent<DialogueBox>().moving == true)
         {
             StartCoroutine(WaitSeconds());
@@ -118,6 +126,7 @@ public class DialogueBoxSender : MonoBehaviour
     public void PostQuizDialogueWrong() //If the quiz is answered incorrectly, replace the dialogue with post question wrong dialouge and then call the dialogue box
     {
         mainDialogue = postQuestionDialogueWrong;
+        SuccessfulQuiz = false;
         if (dialogueBox.GetComponent<DialogueBox>().moving == true)
         {
             StartCoroutine(WaitSeconds());

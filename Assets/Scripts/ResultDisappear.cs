@@ -10,10 +10,10 @@ public class ResultDisappear : MonoBehaviour
 
     private void Update()
     {
-        if (dialogueQuiz.senderCopy.nameOfCharacter == dialogueBoxSender.nameOfCharacter && dialogueQuiz.SuccessfulQuiz == true)
+        if (dialogueQuiz.senderCopy.nameOfCharacter == dialogueBoxSender.nameOfCharacter && dialogueBoxSender.SuccessfulQuiz == true)
         {
             Debug.Log("Should Disable");
-            dialogueQuiz.SuccessfulQuiz = false;
+            dialogueBoxSender.SuccessfulQuiz = false;
             dialogueQuiz.senderCopy = dialogueQuiz.burnerBox;
             ObjectToShutdown.SetActive(false);
         }

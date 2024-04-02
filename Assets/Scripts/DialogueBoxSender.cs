@@ -73,21 +73,22 @@ public class DialogueBoxSender : MonoBehaviour
             Debug.Log("TESTED");
             mainDialogue = preQuestionDialogue;
         }
+        else if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && mainDialogue != preQuestionDialogue)
+        {
+            Debug.Log("PreQuestionDialogue, pre quiz check");
+            numberOfConversations = 1;
+            mainDialogue = preQuestionDialogue;
+        }
         else if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck == null && mainDialogue != preQuestionDialogue)
         {
             Debug.Log("PreQuestionDialogue, no pre quiz check");
             mainDialogue = preQuestionDialogue;
         }
-        else if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && mainDialogue != preQuestionDialogue)
-        {
-            Debug.Log("PreQuestionDialogue, pre quiz check");
-            mainDialogue = preQuestionDialogue;
-        }
-        else if (isQuestionAfter && numberOfConversations == 3)
+        else if (isQuestionAfter && SuccessfulQuiz && numberOfConversations == 3)
         {
             mainDialogue = postQuestionDialogueRight;
         }
-
+        
         if (dialogueBox.GetComponent<DialogueBox>().moving == true) //If the box is moving, prevent the trigger until it stops moving (prevents movement overriding each other)
         {
             canBeSelected = false;
@@ -110,6 +111,7 @@ public class DialogueBoxSender : MonoBehaviour
 
     public void PostQuizDialogueRight() //If the quiz is answered correctly, replace the dialogue with post question correct dialouge and then call the dialogue box
     {
+        Debug.Log("Quiz was right");
         mainDialogue = postQuestionDialogueRight;
         SuccessfulQuiz = true;
 

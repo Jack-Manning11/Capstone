@@ -83,7 +83,7 @@ public class DialogueBoxSender : MonoBehaviour
             Debug.Log("PreQuestionDialogue, pre quiz check");
             mainDialogue = preQuestionDialogue;
         }
-        else if (numberOfConversations == 3)
+        else if (isQuestionAfter && numberOfConversations == 3)
         {
             mainDialogue = postQuestionDialogueRight;
         }

@@ -7912,6 +7912,7 @@ GameObject:
   - component: {fileID: 273005727}
   - component: {fileID: 273005729}
   - component: {fileID: 273005728}
+  - component: {fileID: 273005730}
   m_Layer: 0
   m_Name: HelioLabTripwire
   m_TagString: Untagged
@@ -7965,10 +7966,10 @@ MonoBehaviour:
   answerB: 
   answerC: 
   answerD: 
-  correctAnswerChar: 0
+  correctAnswerChar: 77
   numberOfConversations: 0
   SuccessfulQuiz: 0
-  dialogueBox: {fileID: 0}
+  dialogueBox: {fileID: 1222232167}
   preQuizCheck: {fileID: 0}
   preQuizCheckBool: 0
 --- !u!60 &273005729
@@ -8022,6 +8023,22 @@ PolygonCollider2D:
       - {x: 6.7735195, y: 1.5545902}
       - {x: 6.871134, y: 1.615408}
   m_UseDelaunayMesh: 0
+--- !u!114 &273005730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273005726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ca56c3630bb89459dfe6b5e443f07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBeRemoved: 0
+  dialogueBoxSender: {fileID: 0}
+  dialogueQuiz: {fileID: 0}
+  ObjectToDestroy: {fileID: 0}
 --- !u!1 &280263641
 GameObject:
   m_ObjectHideFlags: 0
@@ -14173,7 +14190,7 @@ Transform:
   m_GameObject: {fileID: 443854995}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.53125, y: -0.1875, z: 0}
+  m_LocalPosition: {x: 6.9375, y: 4.15625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -59180,6 +59197,7 @@ Transform:
   - {fileID: 1678583474}
   - {fileID: 784351583}
   - {fileID: 1897856096}
+  - {fileID: 2008809890}
   m_Father: {fileID: 1744747455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1767863760
@@ -67211,6 +67229,139 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1397980777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2008809889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008809890}
+  - component: {fileID: 2008809893}
+  - component: {fileID: 2008809892}
+  - component: {fileID: 2008809891}
+  m_Layer: 0
+  m_Name: elevatorTripwire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2008809890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008809889}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.46875, y: 4.625, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1767086508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2008809891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008809889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555449cf81637b1448db49435c494799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfCharacter: Broken Elevator
+  mainDialogue:
+  - Sounds like the elevator broke...
+  - Not mechanically...but....
+  - MUSICALLY
+  - No way you'll ride an elevator without music.
+  isQuestionAfter: 0
+  preQuestionDialogue: []
+  postQuestionDialogueRight: []
+  postQuestionDialogueWrong: []
+  question: 
+  answerA: 
+  answerB: 
+  answerC: 
+  answerD: 
+  correctAnswerChar: 115
+  numberOfConversations: 0
+  SuccessfulQuiz: 0
+  dialogueBox: {fileID: 1222232167}
+  preQuizCheck: {fileID: 0}
+  preQuizCheckBool: 0
+--- !u!114 &2008809892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008809889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ca56c3630bb89459dfe6b5e443f07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBeRemoved: 1
+  dialogueBoxSender: {fileID: 1409147183}
+  dialogueQuiz: {fileID: 1726912116}
+  ObjectToDestroy: {fileID: 2008809889}
+--- !u!60 &2008809893
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008809889}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.055694103, y: 0.30939102}
+      - {x: -0.19369411, y: 0.09745026}
+      - {x: -0.21589047, y: -0.036287516}
+      - {x: 0.71546364, y: -0.44143283}
+      - {x: 1.0556184, y: -0.18523955}
+  m_UseDelaunayMesh: 0
 --- !u!1 &2011843702
 GameObject:
   m_ObjectHideFlags: 0

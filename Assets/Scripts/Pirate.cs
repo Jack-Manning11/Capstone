@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,17 @@ using UnityEngine;
 public class Pirate : MonoBehaviour
 {
     public DialogueBoxSender PirateDialogue;
+    public GameObject PirateCollider;
     public Transporter elevator;
+
+    public GameObject PuzzleSolution;
+
+    private string[] newPirateText;
+
+    private void Start()
+    {
+        newPirateText[0] = "YAAARRRRR, Thanks for finding me treasure!!!!";
+    }
 
     private void OnTriggerExit2D(Collider2D other) //When the player leaves the dialogue box
     {
@@ -19,13 +30,12 @@ public class Pirate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (puzzle solved)
+        if (PuzzleSolution.GetComponent<PirateSolution>().solved)
         {
-            this.GetComponent<PolygonCollider2D>().isTrigger = false;
+            PirateCollider.GetComponent<PolygonCollider2D>().isTrigger = true;
+            PirateDialogue.mainDialogue = newPirateText;
             elevator.setGameStage(4);
-            PirateDialogue.SetActive(false);
+            //this.GetComponent<GameObject>().SetActive(false);
         }
-        */
     }
 }

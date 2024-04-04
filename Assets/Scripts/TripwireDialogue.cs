@@ -9,17 +9,18 @@ public class TripwireDialogue : MonoBehaviour
 
     public DialogueBoxSender dialogueBoxSender;
     public DialougeQuiz dialogueQuiz;
-    public GameObject ObjectToDestroy;
+    //public GameObject ObjectToDestroy;
 
     private void OnTriggerEnter2D(Collider2D other) //When the player enters the dialogue box
     {
         numberOfConvo++;
         if (numberOfConvo == 1)
         {
-            this.GetComponent<AudioSource>().Play();
+            //this.GetComponent<AudioSource>().Play();
             this.GetComponent<DialogueBoxSender>().TriggerDialogue();
         }
     }
+    /*
     private void Update()
     {
         if (canBeRemoved && dialogueQuiz.senderCopy.nameOfCharacter == dialogueBoxSender.nameOfCharacter && dialogueBoxSender.SuccessfulQuiz == true)
@@ -27,4 +28,5 @@ public class TripwireDialogue : MonoBehaviour
             ObjectToDestroy.SetActive(false);
         }
     }
+    */
 }

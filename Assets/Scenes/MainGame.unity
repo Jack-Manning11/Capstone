@@ -419,7 +419,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PirateDialogue: {fileID: 100647193}
+  PirateCollider: {fileID: 12626388}
   elevator: {fileID: 1290974040}
+  PuzzleSolution: {fileID: 1168649577}
 --- !u!1 &13718915
 GameObject:
   m_ObjectHideFlags: 0
@@ -3479,6 +3481,7 @@ Transform:
   m_Children:
   - {fileID: 12626389}
   - {fileID: 1491594193}
+  - {fileID: 1168649578}
   m_Father: {fileID: 158020477}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &100647189
@@ -3649,10 +3652,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.20448256, y: -1.2346449}
+    - - {x: -0.06365585, y: -1.039052}
       - {x: 0.50105, y: -0.7518463}
       - {x: -0.33346558, y: -0.25593853}
-      - {x: -1.0954509, y: -0.72356606}
+      - {x: -0.633852, y: -0.71574306}
   m_UseDelaunayMesh: 0
 --- !u!114 &100647193
 MonoBehaviour:
@@ -8164,9 +8167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBeRemoved: 0
-  dialogueBoxSender: {fileID: 0}
-  dialogueQuiz: {fileID: 0}
-  ObjectToDestroy: {fileID: 0}
+  dialogueBoxSender: {fileID: 273005728}
+  dialogueQuiz: {fileID: 1726912116}
 --- !u!1 &280263641
 GameObject:
   m_ObjectHideFlags: 0
@@ -14333,7 +14335,7 @@ Transform:
   m_GameObject: {fileID: 443854995}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.28125, y: 4.40625, z: 0}
+  m_LocalPosition: {x: -0.1875, y: 0.21875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35857,6 +35859,7 @@ MonoBehaviour:
   - What's Design Foundations?
   - Well it's ATLAS premire class for new and transfer students. It teaches the fundementals
     of design in general, and even applies it in practice!
+  - and remember, "Exaggerate the essential and leave the obvious unclear!"
   isQuestionAfter: 0
   preQuestionDialogue: []
   postQuestionDialogueRight: []
@@ -38416,6 +38419,118 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1168649577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168649578}
+  - component: {fileID: 1168649580}
+  - component: {fileID: 1168649579}
+  - component: {fileID: 1168649581}
+  m_Layer: 0
+  m_Name: PuzzleSolution
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1168649578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168649577}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.59375, y: 5.0625, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 100647188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1168649579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168649577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcced68dceaf9c4387a1a6fa0c3dbdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solved: 0
+--- !u!58 &1168649580
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168649577}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &1168649581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168649577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555449cf81637b1448db49435c494799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfCharacter: Hidden Treasure
+  mainDialogue:
+  - '**You found the pirates treasure**'
+  isQuestionAfter: 0
+  preQuestionDialogue: []
+  postQuestionDialogueRight: []
+  postQuestionDialogueWrong: []
+  question: 
+  answerA: 
+  answerB: 
+  answerC: 
+  answerD: 
+  correctAnswerChar: 573
+  numberOfConversations: 0
+  SuccessfulQuiz: 0
+  dialogueBox: {fileID: 1222232167}
+  preQuizCheck: []
+  preQuizCheckBool: 0
 --- !u!1 &1172338675
 GameObject:
   m_ObjectHideFlags: 0
@@ -43275,7 +43390,7 @@ MonoBehaviour:
   mainCamera: {fileID: 519420033}
   bgMusic: {fileID: 473575863}
   elevatorMusic: {fileID: 1290974042}
-  RockMusic: {fileID: 0}
+  RockMusic: {fileID: 921219813}
   ErrorNoise: {fileID: 204274621}
 --- !u!95 &1290974041
 Animator:
@@ -67550,6 +67665,7 @@ GameObject:
   - component: {fileID: 2008809893}
   - component: {fileID: 2008809892}
   - component: {fileID: 2008809891}
+  - component: {fileID: 2008809894}
   m_Layer: 0
   m_Name: elevatorTripwire
   m_TagString: Untagged
@@ -67620,7 +67736,6 @@ MonoBehaviour:
   canBeRemoved: 1
   dialogueBoxSender: {fileID: 1409147183}
   dialogueQuiz: {fileID: 1726912116}
-  ObjectToDestroy: {fileID: 2008809889}
 --- !u!60 &2008809893
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -67671,6 +67786,102 @@ PolygonCollider2D:
       - {x: 0.71546364, y: -0.44143283}
       - {x: 1.0556184, y: -0.18523955}
   m_UseDelaunayMesh: 0
+--- !u!82 &2008809894
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008809889}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 61fbb659b7f5c294c8bacdb686647813, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2011843702
 GameObject:
   m_ObjectHideFlags: 0

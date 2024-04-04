@@ -24,7 +24,7 @@ public class DialogueBoxSender : MonoBehaviour
 
     [SerializeField] private GameObject dialogueBox;
 
-    private bool canBeSelected = false;
+    public bool canBeSelected = false;
 
     private bool hasBeenTalkedTo = false;
     public DialogueBoxSender[] preQuizCheck; //see if there is a person that has to have been talked to first
@@ -105,7 +105,7 @@ public class DialogueBoxSender : MonoBehaviour
         {
             mainDialogue = postQuestionDialogueRight;
         }
-        
+
         if (dialogueBox.GetComponent<DialogueBox>().moving == true) //If the box is moving, prevent the trigger until it stops moving (prevents movement overriding each other)
         {
             canBeSelected = false;
@@ -115,15 +115,14 @@ public class DialogueBoxSender : MonoBehaviour
         {
             dialogueBox.GetComponent<DialogueBox>().StartDialogue(this);
         }
-
     }
 
     IEnumerator WaitSeconds() //Wait a set amount of time to allow the movement to finish
     {
         Debug.Log("Waiting");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3f);
         canBeSelected = true;
-        dialogueBox.GetComponent<DialogueBox>().StartDialogue(this);
+        TriggerDialogue();
     }
 
     public void PostQuizDialogueRight() //If the quiz is answered correctly, replace the dialogue with post question correct dialouge and then call the dialogue box

@@ -9,6 +9,7 @@ public class TripwireDialogue : MonoBehaviour
 
     public DialogueBoxSender dialogueBoxSender;
     public DialougeQuiz dialogueQuiz;
+
     //public GameObject ObjectToDestroy;
 
     private void OnTriggerEnter2D(Collider2D other) //When the player enters the dialogue box

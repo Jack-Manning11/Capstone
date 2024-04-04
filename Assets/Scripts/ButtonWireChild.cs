@@ -9,14 +9,13 @@ public class ButtonWireChild : MonoBehaviour
 
     public DialogueBoxSender puzzleSender;
     public ButtonWirePuzzle puzzle;
-    private string[] newDialogue;
+    private string[] newDialogue = new string[1];
 
     private bool canBeSelected = false;
     private void OnTriggerEnter2D(Collider2D other)
     {
         canBeSelected = true;
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         canBeSelected = false;
@@ -28,14 +27,16 @@ public class ButtonWireChild : MonoBehaviour
             if (type == "wire")
             {
                 puzzle.currentWire = color;
-                newDialogue[0] = "**You now have " + puzzle.currentWire + " wire and " + puzzle.currentButton + " button**";
+                Debug.Log("**You now have " + puzzle.getCurrentWire() + " wire and " + puzzle.getCurrentButton() + " button**");
+                newDialogue[0] = "**You now have " + puzzle.getCurrentWire() + " wire and " + puzzle.getCurrentButton() + " button**";
                 puzzleSender.mainDialogue = newDialogue;
                 puzzleSender.TriggerDialogue();
             }
             else if (type == "button")
             {
                 puzzle.currentButton = color;
-                newDialogue[0] = "**You now have " + puzzle.currentWire + " wire and " + puzzle.currentButton + " button**";
+                Debug.Log("**You now have " + puzzle.getCurrentWire() + " wire and " + puzzle.getCurrentButton() + " button**");
+                newDialogue[0] = "**You now have " + puzzle.getCurrentWire() + " wire and " + puzzle.getCurrentButton() + " button**";
                 puzzleSender.mainDialogue = newDialogue;
                 puzzleSender.TriggerDialogue();
             }

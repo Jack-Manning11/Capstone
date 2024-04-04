@@ -16,6 +16,7 @@ public class TripwireDialogue : MonoBehaviour
         numberOfConvo++;
         if (numberOfConvo == 1)
         {
+            this.GetComponent<AudioSource>().Play();
             this.GetComponent<DialogueBoxSender>().TriggerDialogue();
         }
     }

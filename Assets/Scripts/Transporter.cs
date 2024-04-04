@@ -69,6 +69,8 @@ public class Transporter : MonoBehaviour
 
         public AudioSource bgMusic;
         public AudioSource elevatorMusic;
+        public AudioSource RockMusic;
+        public AudioSource ErrorNoise;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -95,10 +97,14 @@ public class Transporter : MonoBehaviour
     private void Update()
     {
         //Should happen at any point
-        if (soundLabDone && gameStage < 2) gameStage = 2;
+        if (soundLabDone && gameStage < 2)
+        {
+            elevatorMusic = RockMusic;
+            gameStage = 2;
+        }
 
-        //Standing in the Elevatoy
-        if (inElevator && notMoving)
+            //Standing in the Elevatoy
+            if (inElevator && notMoving)
         {
             //Wait for player to select
             if (Input.GetKeyUp(KeyCode.O) && playerSelectingDirection == false)
@@ -178,7 +184,7 @@ public class Transporter : MonoBehaviour
                     else
                     {
                         Debug.Log("Already at the top floor");
-                        //Play a no go sound
+                        ErrorNoise.Play();
                     }
                 }
                 else if (selectedButton == 1)
@@ -213,7 +219,7 @@ public class Transporter : MonoBehaviour
                     else
                     {
                         Debug.Log("Already at the bottom floor");
-                        //Play a no go sound
+                        ErrorNoise.Play();
                     }
                 }
             }

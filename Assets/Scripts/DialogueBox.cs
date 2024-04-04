@@ -131,7 +131,7 @@ public class DialogueBox : MonoBehaviour
 
         inConvo = false;
 
-        if (sender.preQuizCheck != null && sender.preQuizCheck.getHasBeenTalkedTo() == true)
+        if (sender.preQuizCheck != null && sender.checkAllPreQuizChecks() == true)
         {
             sender.preQuizCheckBool = true;
         }

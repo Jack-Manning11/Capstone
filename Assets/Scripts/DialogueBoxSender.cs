@@ -14,6 +14,7 @@ public class DialogueBoxSender : MonoBehaviour
     public string[] preQuestionDialogue;
     public string[] postQuestionDialogueRight;
     public string[] postQuestionDialogueWrong;
+    private string[] needMoreInfo = new string[1];
     public string question, answerA, answerB, answerC, answerD;
     public char correctAnswerChar;
 
@@ -26,8 +27,24 @@ public class DialogueBoxSender : MonoBehaviour
     private bool canBeSelected = false;
 
     private bool hasBeenTalkedTo = false;
-    public DialogueBoxSender preQuizCheck; //see if there is a person that has to have been talked to first
+    public DialogueBoxSender[] preQuizCheck; //see if there is a person that has to have been talked to first
     public bool preQuizCheckBool = false;
+
+    private void Start()
+    {
+        needMoreInfo[0] = "**Looks like I need more information before I continue**";
+    }
+    public bool checkAllPreQuizChecks()
+    {
+        foreach (DialogueBoxSender dialogueBoxSender in preQuizCheck)
+        {
+            if (dialogueBoxSender.getHasBeenTalkedTo() == false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     public bool getHasBeenTalkedTo()
     {
         return hasBeenTalkedTo;
@@ -68,7 +85,7 @@ public class DialogueBoxSender : MonoBehaviour
 
     public void TriggerDialogue() //General call dialogue function.
     {
-        if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && preQuizCheck.getHasBeenTalkedTo() == true && mainDialogue != preQuestionDialogue) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
+        if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && checkAllPreQuizChecks() == true && mainDialogue != preQuestionDialogue) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
         {
             Debug.Log("TESTED");
             mainDialogue = preQuestionDialogue;
@@ -77,7 +94,7 @@ public class DialogueBoxSender : MonoBehaviour
         {
             Debug.Log("PreQuestionDialogue, pre quiz check");
             numberOfConversations = 1;
-            mainDialogue = preQuestionDialogue;
+            mainDialogue = needMoreInfo;
         }
         else if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck == null && mainDialogue != preQuestionDialogue)
         {

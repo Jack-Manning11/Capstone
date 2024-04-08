@@ -35,7 +35,6 @@ public class Pirate : MonoBehaviour
             PirateCollider.GetComponent<PolygonCollider2D>().isTrigger = true;
             PirateDialogue.mainDialogue = newPirateText;
             elevator.setGameStage(4);
-            //this.GetComponent<GameObject>().SetActive(false);
         }
     }
 }

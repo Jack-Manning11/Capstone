@@ -26,6 +26,8 @@ public class DialougeQuiz : MonoBehaviour
 
     public NewMover player;
 
+    public ControlManager controlManager;
+
     public void StartQuiz(DialogueBoxSender dialogueSender)
     {
         //Make all things visible
@@ -132,7 +134,7 @@ public class DialougeQuiz : MonoBehaviour
             }
 
             //When the player is in the quiz and selects a response
-            if (Input.GetKeyDown(KeyCode.O))
+            if (Input.GetKeyDown(KeyCode.O) || controlManager.back)
             {
                 if (currentlySelectedBox == correctAnswerIndex)
                 {
@@ -167,44 +169,44 @@ public class DialougeQuiz : MonoBehaviour
             //Determines the movement of the players hovering icon
             if (currentlySelectedBox == 1)
             {
-                if (Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKeyDown(KeyCode.D) || controlManager.moveRight)
                 {
                     currentlySelectedBox = 3;
                 }
-                if (Input.GetKeyDown(KeyCode.S))
+                if (Input.GetKeyDown(KeyCode.S) || controlManager.moveDown)
                 {
                     currentlySelectedBox = 2;
                 }
             }
             if (currentlySelectedBox == 2)
             {
-                if (Input.GetKeyDown(KeyCode.W))
+                if (Input.GetKeyDown(KeyCode.W) || controlManager.moveUp)
                 {
                     currentlySelectedBox = 1;
                 }
-                if (Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKeyDown(KeyCode.D) || controlManager.moveRight)
                 {
                     currentlySelectedBox = 4;
                 }
             }
             if (currentlySelectedBox == 3)
             {
-                if (Input.GetKeyDown(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.A) || controlManager.moveLeft)
                 {
                     currentlySelectedBox = 1;
                 }
-                if (Input.GetKeyDown(KeyCode.S))
+                if (Input.GetKeyDown(KeyCode.S) || controlManager.moveDown)
                 {
                     currentlySelectedBox = 4;
                 }
             }
             if (currentlySelectedBox == 4)
             {
-                if (Input.GetKeyDown(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.A) || controlManager.moveLeft)
                 {
                     currentlySelectedBox = 2;
                 }
-                if (Input.GetKeyDown(KeyCode.W))
+                if (Input.GetKeyDown(KeyCode.W) || controlManager.moveUp)
                 {
                     currentlySelectedBox = 3;
                 }

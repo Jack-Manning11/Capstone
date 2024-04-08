@@ -8,6 +8,8 @@ public class ButtonWirePuzzle : MonoBehaviour
     public string currentWire;
     public string currentButton;
 
+    public ControlManager controlManager;
+
     private void Start()
     {
         currentWire = "no";

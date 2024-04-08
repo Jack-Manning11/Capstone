@@ -23,7 +23,7 @@ public class ButtonWireChild : MonoBehaviour
     }
     void Update()
     {
-        if (canBeSelected && Input.GetKeyDown(KeyCode.O))
+        if (canBeSelected && (Input.GetKeyDown(KeyCode.O) || puzzle.controlManager.select))
         {
             if (type == "wire")
             {

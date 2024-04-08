@@ -62,7 +62,7 @@ public class Transporter : MonoBehaviour
         }
     //1 is the first floor (elevator only goes up)
     //2 is the second floor (evevator is broken until the sound puzzle is solved)
-    private bool soundLabDone = false;
+        private bool soundLabDone = false;
         public void setSoundLabDone(bool b)
         {
             soundLabDone = b;
@@ -74,6 +74,8 @@ public class Transporter : MonoBehaviour
         public AudioSource elevatorMusic;
         public AudioSource RockMusic;
         public AudioSource ErrorNoise;
+
+        public ControlManager controlManager;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -110,7 +112,7 @@ public class Transporter : MonoBehaviour
             if (inElevator && notMoving)
         {
             //Wait for player to select
-            if (Input.GetKeyUp(KeyCode.O) && playerSelectingDirection == false)
+            if ((Input.GetKeyUp(KeyCode.O) || controlManager.select) && playerSelectingDirection == false)
             {
                 animator.SetBool("Open", false); //Close Door
 
@@ -124,15 +126,15 @@ public class Transporter : MonoBehaviour
             //Once the player has chosen to move:
             else if (playerSelectingDirection == true)
             {
-                if (Input.GetKeyUp(KeyCode.W) && gameStage != 3)
+                if ((Input.GetKeyUp(KeyCode.W) || controlManager.moveUp) && gameStage != 3)
                 {
                     selectedButton = 0;
                 }
-                if (Input.GetKeyUp(KeyCode.S) && gameStage != 1 && gameStage != 3)
+                if ((Input.GetKeyUp(KeyCode.S) || controlManager.moveDown) && gameStage != 1 && gameStage != 3)
                 {
                     selectedButton = 1;
                 }
-                if (Input.GetKeyUp(KeyCode.P)) //Exit the elevator
+                if ((Input.GetKeyUp(KeyCode.P) || controlManager.back)) //Exit the elevator
                 {
                     animator.SetBool("Open", true); //Open Door
 
@@ -162,7 +164,7 @@ public class Transporter : MonoBehaviour
             }
 
             //Player has chosen direction
-            if (Input.GetKeyDown(KeyCode.O) && playerSelectingDirection == true)
+            if ((Input.GetKeyUp(KeyCode.O) || controlManager.select) && playerSelectingDirection == true)
             {
                 if (selectedButton == 0)
                 {

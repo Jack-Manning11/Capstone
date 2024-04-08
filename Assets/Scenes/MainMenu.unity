@@ -354,6 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 794514290}
   - component: {fileID: 794514289}
+  - component: {fileID: 794514291}
   - component: {fileID: 794514288}
   m_Layer: 0
   m_Name: MainMenu
@@ -375,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: MainGame
+  controlManager: {fileID: 794514291}
 --- !u!212 &794514289
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -442,6 +444,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &794514291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794514287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d2538b852f2ec44843f90812c45641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveUp: 0
+  moveDown: 0
+  moveLeft: 0
+  moveRight: 0
+  select: 0
+  back: 0
 --- !u!1 &1349279928
 GameObject:
   m_ObjectHideFlags: 0

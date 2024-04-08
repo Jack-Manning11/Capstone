@@ -14,11 +14,13 @@ public class HintIndicator : MonoBehaviour
 
     public float timeToHold;
 
+    public ControlManager controlManager;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) held = true;
-        if (Input.GetKeyUp(KeyCode.P)) held = false;
+        if (Input.GetKeyDown(KeyCode.P) || controlManager.back) held = true;
+        if (Input.GetKeyUp(KeyCode.P) || controlManager.back) held = false;
 
         if (held)
         {

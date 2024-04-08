@@ -14,7 +14,10 @@ public class Transporter : MonoBehaviour
         [SerializeField] private GameObject ElevatorUIOffDownCracked;
         [SerializeField] private GameObject UpUiOn;
         [SerializeField] private GameObject DownUIOn;
-
+        [SerializeField] private GameObject ElevatorBackLeft;
+        [SerializeField] private GameObject ElevatorBackRight;
+        [SerializeField] private GameObject ElevatorFloor;
+        [SerializeField] private GameObject ElevatorTop;
         [SerializeField] private GameObject Player;
         [SerializeField] private GameObject Elevator;
         [SerializeField] private List<GameObject> ElevatorList = new List<GameObject>();
@@ -56,7 +59,7 @@ public class Transporter : MonoBehaviour
         public int getGameStage()
         {
             return gameStage;
-        }   
+        }
     //1 is the first floor (elevator only goes up)
     //2 is the second floor (evevator is broken until the sound puzzle is solved)
     private bool soundLabDone = false;

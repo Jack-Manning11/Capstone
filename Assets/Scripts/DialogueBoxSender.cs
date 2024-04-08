@@ -63,24 +63,12 @@ public class DialogueBoxSender : MonoBehaviour
 
     private void Update()
     {
-        if (canBeSelected && Input.GetKeyDown(KeyCode.O) && !dialogueBox.GetComponent<DialogueBox>().inConvo && mainDialogue != null) //If the player is in range, they press O, and they are not currently in a dialogue
+        if (canBeSelected && (Input.GetKeyDown(KeyCode.O) || dialogueBox.GetComponent<ControlManager>().select) && !dialogueBox.GetComponent<DialogueBox>().inConvo && mainDialogue != null) //If the player is in range, they press O, and they are not currently in a dialogue
         {
             hasBeenTalkedTo = true;
             numberOfConversations++;
             TriggerDialogue();
         }
-        /*
-        if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && preQuizCheck.getHasBeenTalkedTo() == true && mainDialogue != preQuestionDialogue) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
-        {
-            Debug.Log("TESTED");
-            mainDialogue = preQuestionDialogue;
-        }
-        else if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck == null && mainDialogue != preQuestionDialogue)
-        {
-            Debug.Log("PreQuestionDialogue, no pre quiz check");
-            mainDialogue = preQuestionDialogue;
-        }
-        */
     }
 
     public void TriggerDialogue() //General call dialogue function.

@@ -41,6 +41,7 @@ public class DialogueBox : MonoBehaviour
 
     public Canvas canvas;
 
+    public ControlManager controlManager;
     private void Start() //Create a new queue
     {
         sentences = new Queue<string>();
@@ -181,7 +182,7 @@ public class DialogueBox : MonoBehaviour
                 moving = false;
             }
         }
-        else if (inConvo && Input.GetKeyUp(KeyCode.O)) //Display the next sentence if the button is hit while in a conversation.
+        else if (inConvo && (Input.GetKeyDown(KeyCode.O) || controlManager.select)) //Display the next sentence if the button is hit while in a conversation.
         {
             DisplayNextSentence();
         }

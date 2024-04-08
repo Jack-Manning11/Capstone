@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class NewMover : MonoBehaviour
 {
     public Rigidbody2D body;
@@ -34,16 +33,49 @@ public class NewMover : MonoBehaviour
 
     private Vector2 direction;
 
+    public ControlManager controlManager;
+
+    private int directionUpDown = 0;
+    private int directionLeftRight = 0;
+
+    Vector2 move;
     void Update() {
     if(moveLock == false){
-        direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        if (controlManager.moveUp)
+        {
+            directionUpDown = 1;
+            move = new Vector2 (directionLeftRight, directionUpDown);
+        }
+        if (controlManager.moveDown)
+        {
+            directionUpDown = -1;
+            move = new Vector2(directionLeftRight, directionUpDown);
+        }
+        if (controlManager.moveLeft)
+        {
+            directionLeftRight = -1;
+            move = new Vector2(directionLeftRight, directionUpDown);
+        }
+        if (controlManager.moveRight)
+        {
+            directionLeftRight = 1;
+            move = new Vector2(directionLeftRight, directionUpDown);
+        }
+        if (!controlManager.moveUp && !controlManager.moveDown && !controlManager.moveLeft && !controlManager.moveRight)
+        {
+            directionUpDown = 0;
+            directionLeftRight = 0;
+            move = new Vector2(directionLeftRight, directionUpDown);
+        }
+
+        direction = move.normalized;
         walkSpeed = 2.5f;
     } else {
         direction = Vector2.zero; // Set direction to zero if moveLock is true
         isMoving = false; // Set isMoving to false when moveLock is true
         walkSpeed = 0f;
     }
-    if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0 && Mathf.Abs(Input.GetAxis("Vertical")) > 0)
+    if (move.x > 0 && move.y > 0)
     {
     // If moving diagonally, divide the vertical velocity by 2
       direction.y /= 2f;

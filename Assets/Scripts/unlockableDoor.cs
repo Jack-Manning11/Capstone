@@ -17,6 +17,8 @@ public class unlockableDoor : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject doorToUnlock;
 
+    [SerializeField] private ControlManager controlManager;
+
     void Update()
     {
       if(checkWin()){
@@ -39,7 +41,8 @@ public class unlockableDoor : MonoBehaviour
           player.GetComponent<NewMover>().setMoveLock(false);
       }
       if(isInteracting){
-        if(Input.GetKeyDown(KeyCode.P)){
+        if(Input.GetKeyDown(KeyCode.P) || controlManager.back)
+            {
           isInteracting = false;
           pos = -1;
           clearHighlights();
@@ -53,7 +56,7 @@ public class unlockableDoor : MonoBehaviour
         if(pos == 0){
           clearHighlights();
           highlights[0].GetComponent<SpriteRenderer>().enabled = true;
-          if(Input.GetKeyDown(KeyCode.O)){
+          if(Input.GetKeyDown(KeyCode.O) || controlManager.select){
             if(indexes[0] != 9){
               indexes[0] = indexes[0] + 1;
             } else {
@@ -61,13 +64,13 @@ public class unlockableDoor : MonoBehaviour
             }
             numberSlots[0].GetComponent<SpriteRenderer>().sprite = numberSprites[indexes[0]];
           }
-          if(Input.GetKeyDown(KeyCode.D)){
+          if(Input.GetKeyDown(KeyCode.D) || controlManager.moveRight){
             pos = 1;
           }
         } else if (pos == 1){
           clearHighlights();
           highlights[1].GetComponent<SpriteRenderer>().enabled = true;
-          if(Input.GetKeyDown(KeyCode.O)){
+          if(Input.GetKeyDown(KeyCode.O) || controlManager.select){
             if(indexes[1] != 9){
               indexes[1] = indexes[1] + 1;
             } else {
@@ -75,15 +78,15 @@ public class unlockableDoor : MonoBehaviour
             }
             numberSlots[1].GetComponent<SpriteRenderer>().sprite = numberSprites[indexes[1]];
           }
-          if(Input.GetKeyDown(KeyCode.D)){
+          if(Input.GetKeyDown(KeyCode.D) || controlManager.moveRight){
             pos = 2;
-          } else if (Input.GetKeyDown(KeyCode.A)) {
+          } else if (Input.GetKeyDown(KeyCode.A) || controlManager.moveLeft) {
             pos = 0;
           }
         } else if (pos == 2){
           clearHighlights();
           highlights[2].GetComponent<SpriteRenderer>().enabled = true;
-          if(Input.GetKeyDown(KeyCode.O)){
+          if(Input.GetKeyDown(KeyCode.O) || controlManager.select){
             if(indexes[2] != 9){
               indexes[2] = indexes[2] + 1;
             } else {
@@ -91,15 +94,15 @@ public class unlockableDoor : MonoBehaviour
             }
             numberSlots[2].GetComponent<SpriteRenderer>().sprite = numberSprites[indexes[2]];
           }
-          if(Input.GetKeyDown(KeyCode.D)){
+          if(Input.GetKeyDown(KeyCode.D) || controlManager.moveRight){
             pos = 3;
-          } else if (Input.GetKeyDown(KeyCode.A)) {
+          } else if (Input.GetKeyDown(KeyCode.A) || controlManager.moveLeft) {
             pos = 1;
           }
         } else if (pos == 3){
           clearHighlights();
           highlights[3].GetComponent<SpriteRenderer>().enabled = true;
-          if(Input.GetKeyDown(KeyCode.O)){
+          if(Input.GetKeyDown(KeyCode.O) || controlManager.select){
             if(indexes[3] != 9){
               indexes[3] = indexes[3] + 1;
             } else {
@@ -107,13 +110,13 @@ public class unlockableDoor : MonoBehaviour
             }
             numberSlots[3].GetComponent<SpriteRenderer>().sprite = numberSprites[indexes[3]];
           }
-          if(Input.GetKeyDown(KeyCode.A)){
+          if(Input.GetKeyDown(KeyCode.A) || controlManager.moveLeft){
             pos = 2;
           }
         }
 
       }
-      if(inRange && Input.GetKeyDown(KeyCode.O) && !isInteracting) {
+      if(inRange && (Input.GetKeyDown(KeyCode.O) || controlManager.select) && !isInteracting) {
         SpriteRenderer popupSprite = popup.GetComponent<SpriteRenderer>();
         player.GetComponent<NewMover>().setMoveLock(true);
         popupSprite.enabled = true;

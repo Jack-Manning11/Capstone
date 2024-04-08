@@ -17,17 +17,7 @@ public class TripwireDialogue : MonoBehaviour
         numberOfConvo++;
         if (numberOfConvo == 1)
         {
-            //this.GetComponent<AudioSource>().Play();
             this.GetComponent<DialogueBoxSender>().TriggerDialogue();
         }
     }
-    /*
-    private void Update()
-    {
-        if (canBeRemoved && dialogueQuiz.senderCopy.nameOfCharacter == dialogueBoxSender.nameOfCharacter && dialogueBoxSender.SuccessfulQuiz == true)
-        {
-            ObjectToDestroy.SetActive(false);
-        }
-    }
-    */
 }

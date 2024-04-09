@@ -10,6 +10,7 @@ TagManager:
   - DialogueBoxObj
   - IgnoreOpacity
   - Furniture
+  - Buffalo
   layers:
   - Default
   - TransparentFX

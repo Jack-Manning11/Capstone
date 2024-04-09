@@ -6,12 +6,11 @@ using UnityEngine;
 public class Pirate : MonoBehaviour
 {
     public DialogueBoxSender PirateDialogue;
-    public GameObject PirateCollider;
     public Transporter elevator;
 
     public GameObject PuzzleSolution;
 
-    private string[] newPirateText;
+    private string[] newPirateText = new string[1];
 
     private void Start()
     {
@@ -32,7 +31,7 @@ public class Pirate : MonoBehaviour
     {
         if (PuzzleSolution.GetComponent<PirateSolution>().solved)
         {
-            PirateCollider.GetComponent<PolygonCollider2D>().isTrigger = true;
+            this.GetComponent<PolygonCollider2D>().isTrigger = true;
             PirateDialogue.mainDialogue = newPirateText;
             elevator.setGameStage(4);
         }

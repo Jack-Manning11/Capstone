@@ -57,6 +57,7 @@ public class unlockableDoor : MonoBehaviour
           clearHighlights();
           highlights[0].GetComponent<SpriteRenderer>().enabled = true;
           if(Input.GetKeyDown(KeyCode.O) || controlManager.select){
+            controlManager.select = false;
             if(indexes[0] != 9){
               indexes[0] = indexes[0] + 1;
             } else {
@@ -65,13 +66,15 @@ public class unlockableDoor : MonoBehaviour
             numberSlots[0].GetComponent<SpriteRenderer>().sprite = numberSprites[indexes[0]];
           }
           if(Input.GetKeyDown(KeyCode.D) || controlManager.moveRight){
-            pos = 1;
+                    controlManager.moveRight = false;
+                   pos = 1;
           }
         } else if (pos == 1){
           clearHighlights();
           highlights[1].GetComponent<SpriteRenderer>().enabled = true;
           if(Input.GetKeyDown(KeyCode.O) || controlManager.select){
-            if(indexes[1] != 9){
+                    controlManager.select = false;
+                    if (indexes[1] != 9){
               indexes[1] = indexes[1] + 1;
             } else {
               indexes[1] = 0;
@@ -79,15 +82,18 @@ public class unlockableDoor : MonoBehaviour
             numberSlots[1].GetComponent<SpriteRenderer>().sprite = numberSprites[indexes[1]];
           }
           if(Input.GetKeyDown(KeyCode.D) || controlManager.moveRight){
-            pos = 2;
+                    controlManager.moveRight = false;
+                    pos = 2;
           } else if (Input.GetKeyDown(KeyCode.A) || controlManager.moveLeft) {
-            pos = 0;
+                    controlManager.moveLeft = false;
+                    pos = 0;
           }
         } else if (pos == 2){
           clearHighlights();
           highlights[2].GetComponent<SpriteRenderer>().enabled = true;
           if(Input.GetKeyDown(KeyCode.O) || controlManager.select){
-            if(indexes[2] != 9){
+                    controlManager.select = false;
+                    if (indexes[2] != 9){
               indexes[2] = indexes[2] + 1;
             } else {
               indexes[2] = 0;
@@ -95,15 +101,18 @@ public class unlockableDoor : MonoBehaviour
             numberSlots[2].GetComponent<SpriteRenderer>().sprite = numberSprites[indexes[2]];
           }
           if(Input.GetKeyDown(KeyCode.D) || controlManager.moveRight){
-            pos = 3;
+                    controlManager.moveRight = false;
+                    pos = 3;
           } else if (Input.GetKeyDown(KeyCode.A) || controlManager.moveLeft) {
+                    controlManager.moveLeft = false;
             pos = 1;
           }
         } else if (pos == 3){
           clearHighlights();
           highlights[3].GetComponent<SpriteRenderer>().enabled = true;
           if(Input.GetKeyDown(KeyCode.O) || controlManager.select){
-            if(indexes[3] != 9){
+                    controlManager.select = false;
+                    if (indexes[3] != 9){
               indexes[3] = indexes[3] + 1;
             } else {
               indexes[3] = 0;
@@ -111,13 +120,15 @@ public class unlockableDoor : MonoBehaviour
             numberSlots[3].GetComponent<SpriteRenderer>().sprite = numberSprites[indexes[3]];
           }
           if(Input.GetKeyDown(KeyCode.A) || controlManager.moveLeft){
-            pos = 2;
+                    controlManager.moveLeft = false;
+                    pos = 2;
           }
         }
 
       }
       if(inRange && (Input.GetKeyDown(KeyCode.O) || controlManager.select) && !isInteracting) {
-        SpriteRenderer popupSprite = popup.GetComponent<SpriteRenderer>();
+            controlManager.select = false;
+            SpriteRenderer popupSprite = popup.GetComponent<SpriteRenderer>();
         player.GetComponent<NewMover>().setMoveLock(true);
         popupSprite.enabled = true;
         pos = 0;

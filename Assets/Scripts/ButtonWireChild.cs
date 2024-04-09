@@ -9,7 +9,7 @@ public class ButtonWireChild : MonoBehaviour
 
     public DialogueBoxSender puzzleSender;
     public ButtonWirePuzzle puzzle;
-    public DialogueBox inConvo;
+    public DialogueBox inConvoCheck;
     private string[] newDialogue = new string[1];
 
     private bool canBeSelected = false;
@@ -31,7 +31,7 @@ public class ButtonWireChild : MonoBehaviour
                 Debug.Log("**You now have " + puzzle.getCurrentWire() + " wire and " + puzzle.getCurrentButton() + " button**");
                 newDialogue[0] = "**You now have " + puzzle.getCurrentWire() + " wire and " + puzzle.getCurrentButton() + " button**";
                 puzzleSender.mainDialogue = newDialogue;
-                if (!inConvo.inConvo)
+                if (!inConvoCheck.inConvo)
                 {
                     puzzleSender.TriggerDialogue();
                 } 
@@ -42,7 +42,7 @@ public class ButtonWireChild : MonoBehaviour
                 Debug.Log("**You now have " + puzzle.getCurrentWire() + " wire and " + puzzle.getCurrentButton() + " button**");
                 newDialogue[0] = "**You now have " + puzzle.getCurrentWire() + " wire and " + puzzle.getCurrentButton() + " button**";
                 puzzleSender.mainDialogue = newDialogue;
-                if (!inConvo.inConvo)
+                if (!inConvoCheck.inConvo)
                 {
                     puzzleSender.TriggerDialogue();
                 }

@@ -61,8 +61,10 @@ public class DialogueBox : MonoBehaviour
 
         foreach (string sentence in dialouge.mainDialogue) // Add all the new sentence to the queue
         {
+            Debug.Log(sentence);
             sentences.Enqueue(sentence);
         }
+        Debug.Log("sentences Left: " + sentences.Count);
 
         inConvo = true;
 
@@ -83,14 +85,14 @@ public class DialogueBox : MonoBehaviour
         moving = true; //Moving Up
 
         DisplayNextSentence();
-
-        //player.moveLock = true;
     }
 
     public void DisplayNextSentence() //Calls the type sentence coroutine and dequeues old sentences
     {
+        Debug.Log("sentences Left: " + sentences.Count);
         if (sentences.Count == 0)
         {
+            Debug.Log("Hitting Here?");
             EndDialogue();
             return;
         }
@@ -146,16 +148,14 @@ public class DialogueBox : MonoBehaviour
             Debug.Log("Quiz Start");
             quiz.StartQuiz(sender);
         }
-        else player.moveLock = false;
+        else
+        {
+            player.moveLock = false;
+        }
     }
 
     private void Update()
     {
-        if (quiz.inConvo)
-        {
-            inConvo = true;
-        }
-
         if (moving)
         {
             if (rectTarget.y > rectangle.transform.position.y) Debug.Log("Moving Up");
@@ -176,8 +176,10 @@ public class DialogueBox : MonoBehaviour
                 moving = false;
             }
         }
-        else if (inConvo && (Input.GetKeyDown(KeyCode.O) || controlManager.select)) //Display the next sentence if the button is hit while in a conversation.
+        //Display the next sentence if the button is hit while in a conversation.
+        else if (inConvo && (Input.GetKeyDown(KeyCode.O) || controlManager.select)) 
         {
+            controlManager.select = false;
             DisplayNextSentence();
         }
     }

@@ -25,7 +25,6 @@ public class ControlManager : MonoBehaviour
         controls.Gameplay.MoveLeft.canceled += ctx => moveLeft = false;
         controls.Gameplay.MoveRight.performed += ctx => moveRight = true;
         controls.Gameplay.MoveRight.canceled += ctx => moveRight = false;
-
         controls.Gameplay.Select.performed += ctx => select = true;
         controls.Gameplay.Select.canceled += ctx => select = false;
         controls.Gameplay.Back.performed += ctx => back = true;

@@ -108,12 +108,13 @@ public class Transporter : MonoBehaviour
             gameStage = 2;
         }
 
-            //Standing in the Elevatoy
+            //Standing in the Elevator
             if (inElevator && notMoving)
         {
             //Wait for player to select
             if ((Input.GetKeyUp(KeyCode.O) || controlManager.select) && playerSelectingDirection == false)
             {
+                controlManager.select = false;
                 animator.SetBool("Open", false); //Close Door
 
                 playerSelectingDirection = true; //Player has begun the direction selection process
@@ -128,14 +129,17 @@ public class Transporter : MonoBehaviour
             {
                 if ((Input.GetKeyUp(KeyCode.W) || controlManager.moveUp) && gameStage != 3)
                 {
+                    controlManager.moveUp = false;
                     selectedButton = 0;
                 }
                 if ((Input.GetKeyUp(KeyCode.S) || controlManager.moveDown) && gameStage != 1 && gameStage != 3)
                 {
+                    controlManager.moveDown = false;
                     selectedButton = 1;
                 }
                 if ((Input.GetKeyUp(KeyCode.P) || controlManager.back)) //Exit the elevator
                 {
+                    controlManager.back = false;
                     animator.SetBool("Open", true); //Open Door
 
                     UpUiOn.GetComponent<SpriteRenderer>().enabled = false;
@@ -166,6 +170,7 @@ public class Transporter : MonoBehaviour
             //Player has chosen direction
             if ((Input.GetKeyUp(KeyCode.O) || controlManager.select) && playerSelectingDirection == true)
             {
+                controlManager.select = false;
                 if (selectedButton == 0)
                 {
                     Debug.Log("UP");

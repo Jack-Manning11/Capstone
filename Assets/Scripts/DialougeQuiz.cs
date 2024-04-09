@@ -134,8 +134,9 @@ public class DialougeQuiz : MonoBehaviour
             }
 
             //When the player is in the quiz and selects a response
-            if (Input.GetKeyDown(KeyCode.O) || controlManager.back)
+            if (Input.GetKeyDown(KeyCode.O) || controlManager.select)
             {
+                controlManager.select = false;
                 if (currentlySelectedBox == correctAnswerIndex)
                 {
                     //Success!
@@ -147,8 +148,6 @@ public class DialougeQuiz : MonoBehaviour
                     quizCanvas.GetComponent<Canvas>().enabled = false;
                     senderCopy.numberOfConversations = 3;
                     senderCopy.PostQuizDialogueRight();
-
-                    //.moveLock = false;
                 }
                 else
                 {
@@ -159,10 +158,8 @@ public class DialougeQuiz : MonoBehaviour
                         box.GetComponent<SpriteRenderer>().enabled = false;
                     }
                     quizCanvas.GetComponent<Canvas>().enabled = false;
-                    senderCopy.numberOfConversations = 1;
                     senderCopy.PostQuizDialogueWrong();
                     senderCopy = burnerBox;
-                   // player.moveLock = false;
                 }
             }
 

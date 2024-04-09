@@ -8,6 +8,8 @@ public class PirateSolution : MonoBehaviour
 
     public bool solved = false;
 
+    public ControlManager controlManager;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         canBeSelected = true;
@@ -19,7 +21,7 @@ public class PirateSolution : MonoBehaviour
     }
     private void Update()
     {
-        if (canBeSelected && Input.GetKeyDown(KeyCode.O))
+        if (canBeSelected && (Input.GetKeyDown(KeyCode.O) || controlManager.select))
         {
             solved = true;
         }

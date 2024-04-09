@@ -8,6 +8,7 @@ public class DialogueBoxSender : MonoBehaviour
 
     [TextArea(1, 3)]
     public string[] mainDialogue;
+    public string[] OGDialogue;
 
     public bool isQuestionAfter;
 
@@ -25,6 +26,7 @@ public class DialogueBoxSender : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
 
     public bool canBeSelected = false;
+    private bool movingCheck = false;
 
     private bool hasBeenTalkedTo = false;
     public DialogueBoxSender[] preQuizCheck; //see if there is a person that has to have been talked to first
@@ -33,6 +35,7 @@ public class DialogueBoxSender : MonoBehaviour
     private void Start()
     {
         needMoreInfo[0] = "**Looks like I need more information before I continue**";
+        OGDialogue = mainDialogue;
     }
     public bool checkAllPreQuizChecks()
     {
@@ -50,12 +53,11 @@ public class DialogueBoxSender : MonoBehaviour
         return hasBeenTalkedTo;
     }
 
-        private void OnTriggerEnter2D(Collider2D other) //When the player is in range of the dialogue box
+    private void OnTriggerEnter2D(Collider2D other) //When the player is in range of the dialogue box
     {
         //PLayer is in selecting range
         canBeSelected = true;
     }
-
     private void OnTriggerExit2D(Collider2D other) //When the player leaves the dialogue box
     {
         canBeSelected = false;
@@ -63,44 +65,53 @@ public class DialogueBoxSender : MonoBehaviour
 
     private void Update()
     {
-        if (canBeSelected && (Input.GetKeyDown(KeyCode.O) || dialogueBox.GetComponent<ControlManager>().select) && !dialogueBox.GetComponent<DialogueBox>().inConvo && mainDialogue != null) //If the player is in range, they press O, and they are not currently in a dialogue
+        if (canBeSelected && !movingCheck && (Input.GetKeyDown(KeyCode.O) || dialogueBox.GetComponent<ControlManager>().select) && !dialogueBox.GetComponent<DialogueBox>().inConvo && mainDialogue != null) //If the player is in range, they press O, and they are not currently in a dialogue
         {
+            dialogueBox.GetComponent<ControlManager>().select = false;
+            
             hasBeenTalkedTo = true;
-            numberOfConversations++;
             TriggerDialogue();
         }
     }
 
     public void TriggerDialogue() //General call dialogue function.
     {
-        if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && checkAllPreQuizChecks() == true && mainDialogue != preQuestionDialogue) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
+        if (checkAllPreQuizChecks() == true && !SuccessfulQuiz && mainDialogue != OGDialogue) numberOfConversations = 1;
+
+
+        //After the first, Quiz with prechecks that are done
+        if (numberOfConversations == 1 && isQuestionAfter && preQuizCheck != null && checkAllPreQuizChecks() == true && mainDialogue != preQuestionDialogue) //After the first conversation, needs to switch to prequestion dialogue (if there is any)
         {
             Debug.Log("TESTED");
             mainDialogue = preQuestionDialogue;
         }
-        else if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck != null && mainDialogue != preQuestionDialogue)
+        //After the first, Quiz with prechecks that arent done
+        else if (numberOfConversations == 1 && isQuestionAfter && preQuizCheck != null && mainDialogue != preQuestionDialogue)
         {
             Debug.Log("PreQuestionDialogue, pre quiz check");
-            numberOfConversations = 1;
+            numberOfConversations = 0;
             mainDialogue = needMoreInfo;
         }
-        else if (numberOfConversations == 2 && isQuestionAfter && preQuizCheck == null && mainDialogue != preQuestionDialogue)
+        //After the first, quiz without prechecks
+        else if (numberOfConversations == 1 && isQuestionAfter && preQuizCheck == null && mainDialogue != preQuestionDialogue)
         {
             Debug.Log("PreQuestionDialogue, no pre quiz check");
             mainDialogue = preQuestionDialogue;
         }
+        //Quiz after successful completion
         else if (isQuestionAfter && SuccessfulQuiz && numberOfConversations == 3)
         {
             mainDialogue = postQuestionDialogueRight;
         }
 
-        if (dialogueBox.GetComponent<DialogueBox>().moving == true) //If the box is moving, prevent the trigger until it stops moving (prevents movement overriding each other)
+            if (dialogueBox.GetComponent<DialogueBox>().moving == true) //If the box is moving, prevent the trigger until it stops moving (prevents movement overriding each other)
         {
-            canBeSelected = false;
+            movingCheck = true;
             StartCoroutine(WaitSeconds());
         }
         else
         {
+            numberOfConversations++;
             dialogueBox.GetComponent<DialogueBox>().StartDialogue(this);
         }
     }
@@ -108,38 +119,24 @@ public class DialogueBoxSender : MonoBehaviour
     IEnumerator WaitSeconds() //Wait a set amount of time to allow the movement to finish
     {
         Debug.Log("Waiting");
-        yield return new WaitForSeconds(3f);
-        canBeSelected = true;
-        TriggerDialogue();
+        yield return new WaitForSeconds(1f);
+        movingCheck = false;
     }
 
     public void PostQuizDialogueRight() //If the quiz is answered correctly, replace the dialogue with post question correct dialouge and then call the dialogue box
     {
         Debug.Log("Quiz was right");
         mainDialogue = postQuestionDialogueRight;
+        dialogueBox.GetComponent<DialogueBox>().StartDialogue(this);
         SuccessfulQuiz = true;
-
-        if (dialogueBox.GetComponent<DialogueBox>().moving == true)
-        {
-            StartCoroutine(WaitSeconds());
-        }
-        else
-        {
-            dialogueBox.GetComponent<DialogueBox>().StartDialogue(this);
-        }
     }
 
     public void PostQuizDialogueWrong() //If the quiz is answered incorrectly, replace the dialogue with post question wrong dialouge and then call the dialogue box
     {
+        Debug.Log("Quiz was Wrong");
+        numberOfConversations = 1;
         mainDialogue = postQuestionDialogueWrong;
+        dialogueBox.GetComponent<DialogueBox>().StartDialogue(this);
         SuccessfulQuiz = false;
-        if (dialogueBox.GetComponent<DialogueBox>().moving == true)
-        {
-            StartCoroutine(WaitSeconds());
-        }
-        else
-        {
-            dialogueBox.GetComponent<DialogueBox>().StartDialogue(this);
-        }
     }
 }

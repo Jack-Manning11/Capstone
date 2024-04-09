@@ -163,12 +163,6 @@ public class DialogueBox : MonoBehaviour
 
             t += Time.deltaTime * 3;
 
-            /*
-            nameTarget.x = 0;
-            dialougeTextTarget.x = 0;
-            instructionTextTarget.x = 0;
-            */
-
             rectTarget.x = mainCamera.transform.position.x;
             rectTarget.y = mainCamera.transform.position.y + rectShiftDistance;
 

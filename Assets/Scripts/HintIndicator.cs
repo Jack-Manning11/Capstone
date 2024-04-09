@@ -20,7 +20,7 @@ public class HintIndicator : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P) || controlManager.back) held = true;
-        if (Input.GetKeyUp(KeyCode.P) || controlManager.back) held = false;
+        if (Input.GetKeyUp(KeyCode.P) || controlManager.back == false) held = false;
 
         if (held)
         {

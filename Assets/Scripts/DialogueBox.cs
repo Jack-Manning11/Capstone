@@ -75,13 +75,13 @@ public class DialogueBox : MonoBehaviour
         rectShiftDistance = ogRectShiftDistance;
 
         nameStartPosition = nameText.transform.position;
-        nameTarget = new Vector3(canvas.transform.position.x, nameStartPosition.y + ((canvas.GetComponent<RectTransform>().rect.height)/3f), 0);
+        nameTarget = new Vector3(canvas.transform.position.x, nameStartPosition.y + ((canvas.GetComponent<RectTransform>().rect.height)/3f) + shiftDistance, 0);
 
         dialougeTextStartPosition = dialougeText.transform.position;
-        dialougeTextTarget = new Vector3(canvas.transform.position.x, dialougeTextStartPosition.y + ((canvas.GetComponent<RectTransform>().rect.height) / 3f), 0);
+        dialougeTextTarget = new Vector3(canvas.transform.position.x, dialougeTextStartPosition.y + ((canvas.GetComponent<RectTransform>().rect.height) / 3f) +shiftDistance, 0);
 
         instructionTextStartPosition = instructionText.transform.position;
-        instructionTextTarget = new Vector3(canvas.transform.position.x, instructionTextStartPosition.y + ((canvas.GetComponent<RectTransform>().rect.height) / 3f), 0);
+        instructionTextTarget = new Vector3(canvas.transform.position.x, instructionTextStartPosition.y + ((canvas.GetComponent<RectTransform>().rect.height) / 3f) + shiftDistance, 0);
         moving = true; //Moving Up
 
         DisplayNextSentence();
@@ -123,13 +123,13 @@ public class DialogueBox : MonoBehaviour
         rectShiftDistance = ogRectShiftDistance - 2.15f;
 
         nameStartPosition = nameText.transform.position;
-        nameTarget = new Vector3(canvas.transform.position.x, nameStartPosition.y - ((canvas.GetComponent<RectTransform>().rect.height) / 3f), 0);
+        nameTarget = new Vector3(canvas.transform.position.x, nameStartPosition.y - ((canvas.GetComponent<RectTransform>().rect.height) / 3f) - shiftDistance, 0);
 
         dialougeTextStartPosition = dialougeText.transform.position;
-        dialougeTextTarget = new Vector3(canvas.transform.position.x, dialougeTextStartPosition.y - ((canvas.GetComponent<RectTransform>().rect.height) / 3f), 0);
+        dialougeTextTarget = new Vector3(canvas.transform.position.x, dialougeTextStartPosition.y - ((canvas.GetComponent<RectTransform>().rect.height) / 3f) - shiftDistance, 0);
 
         instructionTextStartPosition = instructionText.transform.position;
-        instructionTextTarget = new Vector3(canvas.transform.position.x, instructionTextStartPosition.y - ((canvas.GetComponent<RectTransform>().rect.height) / 3f), 0);
+        instructionTextTarget = new Vector3(canvas.transform.position.x, instructionTextStartPosition.y - ((canvas.GetComponent<RectTransform>().rect.height) / 3f) - shiftDistance, 0);
         moving = true; //Moving Down
 
         inConvo = false;

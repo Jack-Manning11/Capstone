@@ -14,5 +14,6 @@ public class ResetButton : MonoBehaviour
     {
         
         if (Input.GetKeyUp(KeyCode.R)) SceneManager.LoadScene(currentSceneName);
+        if (Input.GetKeyUp(KeyCode.Escape)) SceneManager.LoadScene("credits");
     }
 }

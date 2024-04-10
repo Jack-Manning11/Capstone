@@ -17,7 +17,7 @@ public class Credits : MonoBehaviour
 
     private void Start()
     {
-        creditTarget = new Vector3(parentCanvas.GetComponent<RectTransform>().position.x, 5000f, 0f);
+        creditTarget = new Vector3(parentCanvas.GetComponent<RectTransform>().position.x, 5500f, 0f);
         creditStartPosition = new Vector3(parentCanvas.GetComponent<RectTransform>().position.x, -1700f, 0f);
     }
 

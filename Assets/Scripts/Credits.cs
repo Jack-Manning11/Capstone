@@ -30,8 +30,14 @@ public class Credits : MonoBehaviour
 
         if (creditText.transform.position.y == creditTarget.y)
         {
-            Debug.Log("Credits done");
-            SceneManager.LoadScene("MainMenu");
+            StartCoroutine(WaitThenJump());
         }
+    }
+
+    IEnumerator WaitThenJump()
+    {
+        yield return new WaitForSeconds(5);
+        Debug.Log("Credits done");
+        SceneManager.LoadScene("MainMenu");
     }
 }

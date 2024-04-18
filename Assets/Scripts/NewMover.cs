@@ -75,7 +75,7 @@ public class NewMover : MonoBehaviour
         isMoving = false; // Set isMoving to false when moveLock is true
         walkSpeed = 0f;
     }
-    if (move.x > 0 && move.y > 0)
+    if (move.x != 0 && move.y != 0)
     {
     // If moving diagonally, divide the vertical velocity by 2
       direction.y /= 2f;

@@ -24,8 +24,8 @@ public class ButtonWirePuzzle : MonoBehaviour
         return currentButton;
     }
 
-    private string winnerWire = "white";
-    private string winnerButton = "purple";
+    private string winnerWire = "pink";
+    private string winnerButton = "green";
 
     private bool showOnce = false;
 

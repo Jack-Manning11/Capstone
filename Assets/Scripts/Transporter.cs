@@ -18,9 +18,11 @@ public class Transporter : MonoBehaviour
         [SerializeField] private GameObject ElevatorBackRight;
         [SerializeField] private GameObject ElevatorFloor;
         [SerializeField] private GameObject ElevatorTop;
+        [SerializeField] private GameObject ElevatorDoor;
+        [SerializeField] private GameObject ElevatorFrontRight;
+        [SerializeField] private GameObject ElevatorFrontLeft;
         [SerializeField] private GameObject Player;
         [SerializeField] private GameObject Elevator;
-        [SerializeField] private List<GameObject> ElevatorList = new List<GameObject>();
 
         [SerializeField] private int TransporterFloor; //-1 for 1b, 0 for main, 1 for 2nd floor
 
@@ -319,20 +321,27 @@ public class Transporter : MonoBehaviour
     IEnumerator firsttosecond()
     {
         Debug.Log("starting");
-        // Set the sorting order of all objects to the first specified value
-        foreach(GameObject elevatorPiece in elevatorItems)
-        {
-            elevatorPiece.GetComponent<SpriteRenderer>().sortingOrder = 250;
-        }
-
+        
         // Wait for a few seconds
-        yield return new WaitForSeconds(0.5f);
+        ElevatorBackLeft.GetComponent<SpriteRenderer>().sortingOrder = 250;
+        ElevatorBackRight.GetComponent<SpriteRenderer>().sortingOrder = 250;
+        ElevatorFloor.GetComponent<SpriteRenderer>().sortingOrder = 250;
+        ElevatorDoor.GetComponent<SpriteRenderer>().sortingOrder = 252;
+        ElevatorTop.GetComponent<SpriteRenderer>().sortingOrder = 252;
+        ElevatorFrontLeft.GetComponent<SpriteRenderer>().sortingOrder = 252;
+        ElevatorFrontRight.GetComponent<SpriteRenderer>().sortingOrder = 252;
+        //PLAYER IN THE MIDDLE
 
+        yield return new WaitForSeconds(3f);
         // Set the sorting order of all objects to the second specified value
-        foreach(GameObject elevatorPiece in elevatorItems)
-        {
-            elevatorPiece.GetComponent<SpriteRenderer>().sortingOrder = 20;
-        }
+        ElevatorBackLeft.GetComponent<SpriteRenderer>().sortingOrder = 20;
+        ElevatorBackRight.GetComponent<SpriteRenderer>().sortingOrder = 20;
+        ElevatorFloor.GetComponent<SpriteRenderer>().sortingOrder = 20;
+        ElevatorDoor.GetComponent<SpriteRenderer>().sortingOrder = 22;
+        ElevatorTop.GetComponent<SpriteRenderer>().sortingOrder = 22;
+        ElevatorFrontLeft.GetComponent<SpriteRenderer>().sortingOrder = 22;
+        ElevatorFrontRight.GetComponent<SpriteRenderer>().sortingOrder = 22;
+
         Debug.Log("ending");
     }
 
@@ -341,7 +350,7 @@ public class Transporter : MonoBehaviour
         // Set the sorting order of all objects to the first specified value
         foreach (GameObject obj in elevatorItems)
         {
-            obj.GetComponent<SpriteRenderer>().sortingOrder = 20;
+            if (obj.GetComponent<SpriteRenderer>().sortingLayerName != "UI") obj.GetComponent<SpriteRenderer>().sortingOrder = 20;
         }
 
         // Wait for a few seconds
@@ -350,7 +359,7 @@ public class Transporter : MonoBehaviour
         // Set the sorting order of all objects to the second specified value
         foreach (GameObject obj in elevatorItems)
         {
-            obj.GetComponent<SpriteRenderer>().sortingOrder = 250;
+            if (obj.GetComponent<SpriteRenderer>().sortingLayerName != "UI") obj.GetComponent<SpriteRenderer>().sortingOrder = 250;
         }
 
         yield return new WaitForSeconds(0.5f);
@@ -358,7 +367,7 @@ public class Transporter : MonoBehaviour
         // Set the sorting order of all objects to the second specified value
         foreach (GameObject obj in elevatorItems)
         {
-            obj.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            if (obj.GetComponent<SpriteRenderer>().sortingLayerName != "UI") obj.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
     }
 
@@ -367,7 +376,7 @@ public class Transporter : MonoBehaviour
         // Set the sorting order of all objects to the first specified value
         foreach (GameObject obj in elevatorItems)
         {
-            obj.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            if (obj.GetComponent<SpriteRenderer>().sortingLayerName != "UI") obj.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
 
         // Wait for a few seconds
@@ -376,7 +385,7 @@ public class Transporter : MonoBehaviour
         // Set the sorting order of all objects to the second specified value
         foreach (GameObject obj in elevatorItems)
         {
-            obj.GetComponent<SpriteRenderer>().sortingOrder = 250;
+            if (obj.GetComponent<SpriteRenderer>().sortingLayerName != "UI") obj.GetComponent<SpriteRenderer>().sortingOrder = 250;
         }
     }
 
@@ -385,7 +394,7 @@ public class Transporter : MonoBehaviour
         // Set the sorting order of all objects to the first specified value
         foreach (GameObject obj in elevatorItems)
         {
-            obj.GetComponent<SpriteRenderer>().sortingOrder = 250;
+            if (obj.GetComponent<SpriteRenderer>().sortingLayerName != "UI") obj.GetComponent<SpriteRenderer>().sortingOrder = 250;
         }
 
         // Wait for a few seconds
@@ -394,7 +403,7 @@ public class Transporter : MonoBehaviour
         // Set the sorting order of all objects to the second specified value
         foreach (GameObject obj in elevatorItems)
         {
-            obj.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            if (obj.GetComponent<SpriteRenderer>().sortingLayerName != "UI") obj.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
     }
 }

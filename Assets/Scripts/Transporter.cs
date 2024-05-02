@@ -174,6 +174,13 @@ public class Transporter : MonoBehaviour
                 if (selectedButton == 0)
                 {
                     Debug.Log("UP");
+                    if(TransporterFloor == -1){
+                      Debug.Log("Basement Going to First!");
+                      StartCoroutine(basementtofirst());
+                    } else if (TransporterFloor == 0){
+                      Debug.Log("First Going to Second!");
+                      StartCoroutine(firsttosecond());
+                    }
                     if (TransporterFloor != 1)
                     {
                         //Movement Stuff
@@ -200,6 +207,10 @@ public class Transporter : MonoBehaviour
                 else if (selectedButton == 1)
                 {
                     Debug.Log("DOWN");
+                    if(TransporterFloor == 0){
+                      Debug.Log("First Going to Basement!");
+                      StartCoroutine(firsttobasement());
+                    }
                     if (TransporterFloor != -1)
                     {
                         //Movement Stuff
@@ -211,6 +222,8 @@ public class Transporter : MonoBehaviour
                         ElevatorStartPosition = Elevator.transform.position;
                         if (gameStage == 2) //After the sound puzzle, go all the way to the basement
                         {
+                            Debug.Log("Second Going to Basement!");
+                            StartCoroutine(secondtobasement());
                             target = new Vector3(startPosition.x, startPosition.y - (2f * moveDistance), 0);
                             elevatorTarget = new Vector3(Elevator.transform.position.x, Elevator.transform.position.y - (2f * moveDistance), 0);
                         }
@@ -244,13 +257,13 @@ public class Transporter : MonoBehaviour
             if (Player.transform.position.y == target.y) //DesinationReacher
             {
                 Debug.Log("Reached Up");
-                TransporterFloor++;
                 mainCamera.smoothness = 2;
                 notMoving = true;
                 selectedButton = 2;
                 movingUp = false;
                 animator.SetBool("Open", true); //Open Door
-                StartCoroutine(ShiftElevatorLayer());
+                TransporterFloor++;
+                //StartCoroutine(ShiftElevatorLayer());
                 StartCoroutine(PlayerMoveUnlock());
             }
         }
@@ -270,13 +283,15 @@ public class Transporter : MonoBehaviour
                     TransporterFloor = TransporterFloor - 2;
                     gameStage = 3;
                 }
-                else TransporterFloor--;
+                else {
+                  TransporterFloor--;
+                }
                 mainCamera.smoothness = 2;
                 notMoving = true;
                 selectedButton = 2;
                 movingDown = false;
                 animator.SetBool("Open", true); //Open Door
-                StartCoroutine(ShiftElevatorLayer());
+                //StartCoroutine(ShiftElevatorLayer());
                 StartCoroutine(PlayerMoveUnlock());
             }
         }
@@ -299,5 +314,87 @@ public class Transporter : MonoBehaviour
             if (elevatorPiece.GetComponent<SpriteRenderer>().sortingLayerName != "UI") elevatorPiece.GetComponent<SpriteRenderer>().sortingOrder = elevatorPiece.GetComponent<SpriteRenderer>().sortingOrder + (Player.GetComponent<SpriteRenderer>().sortingOrder - premoveSortingOrder);
         }
         yield return null;
+    }
+
+    IEnumerator firsttosecond()
+    {
+        Debug.Log("starting");
+        // Set the sorting order of all objects to the first specified value
+        foreach(GameObject elevatorPiece in elevatorItems)
+        {
+            elevatorPiece.GetComponent<SpriteRenderer>().sortingOrder = 250;
+        }
+
+        // Wait for a few seconds
+        yield return new WaitForSeconds(0.5f);
+
+        // Set the sorting order of all objects to the second specified value
+        foreach(GameObject elevatorPiece in elevatorItems)
+        {
+            elevatorPiece.GetComponent<SpriteRenderer>().sortingOrder = 20;
+        }
+        Debug.Log("ending");
+    }
+
+    IEnumerator secondtobasement()
+    {
+        // Set the sorting order of all objects to the first specified value
+        foreach (GameObject obj in elevatorItems)
+        {
+            obj.GetComponent<SpriteRenderer>().sortingOrder = 20;
+        }
+
+        // Wait for a few seconds
+        yield return new WaitForSeconds(0.5f);
+
+        // Set the sorting order of all objects to the second specified value
+        foreach (GameObject obj in elevatorItems)
+        {
+            obj.GetComponent<SpriteRenderer>().sortingOrder = 250;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        // Set the sorting order of all objects to the second specified value
+        foreach (GameObject obj in elevatorItems)
+        {
+            obj.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+    }
+
+    IEnumerator basementtofirst()
+    {
+        // Set the sorting order of all objects to the first specified value
+        foreach (GameObject obj in elevatorItems)
+        {
+            obj.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+
+        // Wait for a few seconds
+        yield return new WaitForSeconds(0.5f);
+
+        // Set the sorting order of all objects to the second specified value
+        foreach (GameObject obj in elevatorItems)
+        {
+            obj.GetComponent<SpriteRenderer>().sortingOrder = 250;
+        }
+    }
+
+    IEnumerator firsttobasement()
+    {
+        // Set the sorting order of all objects to the first specified value
+        foreach (GameObject obj in elevatorItems)
+        {
+            obj.GetComponent<SpriteRenderer>().sortingOrder = 250;
+        }
+
+        // Wait for a few seconds
+        yield return new WaitForSeconds(0.5f);
+
+        // Set the sorting order of all objects to the second specified value
+        foreach (GameObject obj in elevatorItems)
+        {
+            obj.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
     }
 }

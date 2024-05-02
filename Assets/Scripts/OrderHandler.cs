@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OrderHandler : MonoBehaviour
 {
+    public bool elevatorOverride = false;
     [SerializeField] private List<GameObject> enteredObjects = new List<GameObject>();
     //private int baseLayer = 496;
 
@@ -27,31 +28,33 @@ public class OrderHandler : MonoBehaviour
     }
 
     private void UpdateOrderInLayer(){
-      if(enteredObjects.Count > 0){
-        int smallestOrder = int.MaxValue;
-        GameObject targetObject = null;
+      if(elevatorOverride == false){
+        if(enteredObjects.Count > 0){
+          int smallestOrder = int.MaxValue;
+          GameObject targetObject = null;
 
-        foreach (GameObject obj in enteredObjects)
-        {
-            if (obj.GetComponent<SpriteRenderer>() != null)
-            {
-                int orderInLayer = obj.GetComponent<SpriteRenderer>().sortingOrder;
+          foreach (GameObject obj in enteredObjects)
+          {
+              if (obj.GetComponent<SpriteRenderer>() != null)
+              {
+                  int orderInLayer = obj.GetComponent<SpriteRenderer>().sortingOrder;
 
-                if (orderInLayer < smallestOrder)
-                {
-                    smallestOrder = orderInLayer;
-                    targetObject = obj;
-                }
-            }
+                  if (orderInLayer < smallestOrder)
+                  {
+                      smallestOrder = orderInLayer;
+                      targetObject = obj;
+                  }
+              }
+          }
+
+          if (targetObject != null)
+          {
+              int playerOrder = targetObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
+              GetComponent<SpriteRenderer>().sortingOrder = playerOrder;
+          }
+        } else {
+          GetComponent<SpriteRenderer>().sortingOrder = 600;
         }
-
-        if (targetObject != null)
-        {
-            int playerOrder = targetObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
-            GetComponent<SpriteRenderer>().sortingOrder = playerOrder;
-        }
-      } else {
-        GetComponent<SpriteRenderer>().sortingOrder = 600;
       }
     }
 

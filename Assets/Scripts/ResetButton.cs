@@ -13,7 +13,7 @@ public class ResetButton : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyUp(KeyCode.R)) SceneManager.LoadScene(currentSceneName);
+        if (Input.GetKeyUp(KeyCode.R)) SceneManager.LoadScene("MainMenu");
         if (Input.GetKeyUp(KeyCode.Escape)) SceneManager.LoadScene("credits");
     }
 }
